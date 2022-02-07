@@ -1,0 +1,8 @@
+/results
+/.idea
+../.idea
+# results
+*.html
+*.xml
+*.png
+*.log

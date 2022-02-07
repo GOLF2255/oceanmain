@@ -1,0 +1,1 @@
+robot -d results -i smoke -v ENV:QA main.robot

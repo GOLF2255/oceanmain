@@ -1,0 +1,44 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI GeoPulse Manual PROD V2.5 Regression
+on:
+  workflow_dispatch:
+jobs:
+    run_tests_manually:
+        runs-on: ubuntu-latest
+        strategy:
+          matrix:
+            python-version: [3.7]
+        steps:
+        # checkout code from a repository
+        - uses: actions/checkout@v2
+          with:
+            ref: v2.5
+        # create folder for test reports
+        - name: Create folder for reports
+          run: mkdir $GITHUB_WORKSPACE/geopulse_at/reports
+        # run Robot Framework tests inside Docker container
+        - name: Run Robot Framework Tests
+          # container used here is ppodgorsek/robot-framework:latest 
+          # see container documentation for usage: https://hub.docker.com/r/ppodgorsek/robot-framework/dockerfile
+          # it is required that GitHub repository contains folder "reports". Commit some file inside "reports" to create it
+          # place tests in folder tests or change docker run command accordingly
+          # configure -e ROBOT_OPTIONS according to yout tests, or remove it if no special configuration is needed
+          run: |
+            docker run \
+              -v /dev/shm:/dev/shm \
+              -v ${PWD}/geopulse_at/reports:/opt/robotframework/reports:Z \
+              -v ${PWD}/geopulse_at:/opt/robotframework/tests:Z \
+              -e ROBOT_OPTIONS="-i regression -v ENV:PROD -v PASSWORD_TRUESSO:${{ secrets.PASSWORD_TRUESSO }} -v PASSWORD_FIREBASE:${{ secrets.PASSWORD_FIREBASE }}" \
+              -e BROWSER=chrome \
+              --user $(id -u):$(id -g) \
+              --user=1001:1001 \
+              ppodgorsek/robot-framework:latest
+        # upload test reports as a zip file
+        - name: Upload reports
+          uses: actions/upload-artifact@v2
+          if: always()
+          with:
+            name: reports
+            path: ./geopulse_at/reports #${{ github.workspace }}/reports
+            retention-days: 5

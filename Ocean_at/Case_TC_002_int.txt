@@ -1,0 +1,94 @@
+*** Settings ***
+Resource          variables.txt
+Resource    common/CommonKeywords.txt
+
+*** Keywords ***
+deas
+    Open Browser    ${url}    @{gch}
+
+fortesttst2
+    ${cntsst}=    Get length    ${linelistt}
+    FOR    ${index}    IN RANGE    0    ${cntsst}
+        ${value}=    Remove from List    ${linelistt}    -1
+    END
+    Append To List    ${linelistt}    01
+    ${cntsstt}=    Get length    ${linelist}
+    FOR    ${index}    IN RANGE    0    ${cntsstt}
+        ${value}=    Remove from List    ${linelist}    -1
+    END
+    Append To List    ${linelist}    01
+
+forcase2
+    FOR    ${linetag}    IN    @{listtag}
+        ${resultdata}=    Run Keyword And Return Status    Wait Until Page Contains    ${linetag}    error=true
+        Run Keyword If    '${resultdata}'=='True'    Log To Console    >>>>>>>Tag=${linetag} >>>>Pass <<<<<<<<<<<
+        Run Keyword If    '${resultdata}'=='False'    Log To Console    >>>>>>>Tags=${linetag} >>>>false <<<<<<<<<<<
+
+    END
+    FOR    ${line}    IN    @{list}
+        ${result} =    Run Keyword And Return Status    Wait Until Page Contains    ${line}    error=false
+        Run Keyword If    '${result}'=='False'    Log To Console    >>>>Error No hava= ${line} <<<<<<<<<<<
+        Run Keyword If    '${result}'=='False'    Append To List    ${linelist}    ${codes}[1]
+        Run Keyword If    '${result}'=='True'    Append To List    ${linelistt}    ${codes}[1]
+    END
+
+
+Test Radius selection on default gird_int
+    @{linelist}=    Create List    ${codes}[0]
+    @{linelistt}=    Create List    ${codes}[0]
+    ${File}=    Get File    ${Filetxt}
+    @{list}=    Split to lines    ${File}
+    ${Filetag}=    Get File    ${idTag}
+    @{listtag}=    Split to lines    ${Filetag}
+    ${Fileuse}=    Get File    ${Filetxts}
+    @{lists_}=    Split to lines    ${Fileuse}
+    ${Filetagcase2}=    Get File    ${idcasein2}
+    @{listcase2}=    Split to lines    ${Filetagcase2}
+    Set Global Variable    @{list}
+    Set Global Variable    @{listtag}
+    Set Global Variable    @{linelistt}
+    Set Global Variable    @{linelist}
+    FOR    ${INDEXcase}    IN    @{listcase2}
+        Internal_login
+        Log To Console    ******
+        Log To Console    case 2
+        Log To Console    ${INDEXcase}
+        CommonKeywords.Login Internally with Username and Password    ${INDEXcase}    ${PASSWORD_TRUESSO}    ${locationint}[0]${imgs}[1]${INDEXcase}1.jpg
+        CommonKeywords.Home page - Select the time filter    ${timesele}[0]    ${locationint}[0]${imgs}[1]${INDEXcase}2.jpg
+        CommonKeywords.Home page - Select the feature filter    ${data usege}[0]   ${locationint}[0]${imgs}[1]${INDEXcase}3.jpg
+        Wait Until Page Contains Element    //i[@class="icon-radius"]
+        Click Element    //i[@class="icon-radius"]
+        Click Element    //div[@id="view-default-view"]
+        CommonKeywords.Verify if the page contains the expected text    ${lineGrids}   GridID
+        CommonKeywords.Verify if the page contains the expected text    ${idDensity}[0]    Density
+         CommonKeywords.Verify if the page contains the expected text    ${data usege}[0]    Filter details
+        forcase2
+        CommonKeywords.Take screenshot by flag IS_SCREENSHOT    ${locationint}[0]${imgs}[1]${INDEXcase}4.jpg
+        CommonKeywords.Home page - Export data    ${locationint}[0]${imgs}[1]${INDEXcase}5.jpg
+        Close All Browsers
+        ${cnt}=    Get length    ${linelist}
+        ${cntt}=    Get length    ${linelistt}
+        Set Global Variable    ${linelist}
+        Set Global Variable    ${linelistt}
+        Run Keyword If    '${cnt}'=='1'    Log To Console    >>>>>>>Card${cntt-1}=PASS<<<<<<<
+        Run Keyword If    '${cnt}'=='1'    Log To Console    >>>>>>>Test Pointer selection on default grid= PASS<<<<<<<
+        Run Keyword If    '${cnt}'>'1'    Log To Console    >>>>>>>Card=No Pass${cnt-1}<<<<<<<
+        #Log To Console    >>>>>Card 16<<<<<17/11/2020
+        Log To Console    >>>>>Tag 1<<<<<    #19/02/2021
+        fortesttst2
+    END
+    #...ELSE IF    '@{lissssst}[0]'=='0'    deas
+    #Run Keyword If    '${returnone}'=='1'    Close All Browsers    Open Browser    ${url}    gc
+    #@{lissssst}=    Create List    1
+    #Log To Console    ${result}
+    #@{lisst}=    Create List    1
+    #Log To Console    ${lisst}
+    #Log To Console    >>>>No hava= ${line} <<<<<<<<<<<
+    #    ${condition} =    Wait Until Page Contains    ${line}
+    #    Run Keyword if    '${condition}'=='false'    Log To Console    FFFFFFFFFFFFF
+    #Wait Until Page Contains    Monthly Inbound/Outbound Call Usage
+    #${CreateButtonVisible}=    Create List    Monthly Inbound/Outbound Call Usage
+    #Log To Console    ${CreateButtonVisible}[0]
+    #Run Keyword If    '${employee}'=='Monthly Inbound/Outbound Call Usage'    Log To Console    paaaaasss
+    # Run Keyword If    'Wait Until Page Contains'=='Monthly Inbound/Outbound Call Usage'    Log To Console    QAAAAA
+    #... ELSE    Log To Console    FFFFFFFFFFFFF

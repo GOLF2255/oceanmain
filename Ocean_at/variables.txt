@@ -1,0 +1,222 @@
+*** Settings ***
+#Library           Selenium2Library
+Library           SeleniumLibrary
+Library           OperatingSystem
+Library           String
+Library           Collections
+#Library           ExcelLibrary
+#Library           CSVLib
+Library           Collections
+Library           OperatingSystem
+
+*** Variables ***
+
+@{go_ordinary}  http://sitnbs.thaisamut.co.th/nbsweb/secure/combine2/newcaseshortly/ord/record/index.html?uuid=52fa53c133c53b84b587de54-f7ebf11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+${FiletmapbTravel_Distance}      ${CURDIR}/configFiterMapA/Travel_Distance.txt
+@{mapfiter2}      mainMap_coffee_tags    mainMap_music_tags    mainMap_travel_tags    mainMap_f_profile_age_group    mainMap_f_profile_customer_type    mainMap_f_profile_payment_group    mainMap_f_profile_handset_group    mainMap_f_profile_customer_segment    mainMap_social_tags    mainMap_bankapp_tags    mainMap_trueproduct_tags    mainMap_f_profile_travel_distance    mainMap_investment_tags    mainMap_realestate_tags    mainMap_f_profile_gender    mainMap_automobile_tags    mainMap_insurance_tags    mainMap_fitness_and_wellness_tags    mainMap_electronic_and_gadget_tags    mainMap_automobile_tags    mainMap_f_profile_travel_distance    mainMap_f_profile_travel_distance      mainMap_chain_restaurant_tags      mainMap_online_shopping_tags      mainMap_gaming_tags      mainMap_streaming_tags    #    #
+${mapfitermapA}    ${CURDIR}/SE_FEATURERMAP_A.txt
+${mapfitermapAALL}    ${CURDIR}/SE_FEATURERMAP_A_ALL.txt
+${mapgeneralmapA}    ${CURDIR}/SE_generalMAP_A.txt
+${mapgeneralmapAmain}    ${CURDIR}/SE_generalmainMAP_A.txt
+${mapgeneralmapB}    ${CURDIR}/SE_generalMAP_B.txt
+${mapgeneralmapBmain}    ${CURDIR}/SE_generalmainMAP_B.txt
+${app-version}     2-6-2
+
+
+
+${mapfiterAGE}    ${CURDIR}/configFiterMapA/AGE.txt
+
+${mapfiterAutomobile_Interests}    ${CURDIR}/configFiterMapA/Automobile_Interests.txt
+${mapfiterAverage_Work}     ${CURDIR}/configFiterMapA/Average_Work.txt
+${mapfiterBeauty_Interests}    ${CURDIR}/configFiterMapA/Beauty_Interests.txt
+${mapfiterChain_Restaurant_Interests}    ${CURDIR}/configFiterMapA/Chain_Restaurant_Interests.txt
+${mapfiterShopping_Interests}    ${CURDIR}/configFiterMapA/Shopping_Interests.txt
+${mapfiterSE_FEATURERMAP_A}    ${CURDIR}/configFiterMapA/Gaming_Interests.txt
+${mapfiterStreaming_Interests}    ${CURDIR}/configFiterMapA/Streaming_Interests.txt
+
+${mapfiterAuto_Mobile_Interests}    ${CURDIR}/configFiterMapA/Auto_Mobile_Interests.txt
+${mapfiterCoffee_Interests}    ${CURDIR}/configFiterMapA/Coffee_Interests.txt
+${mapfiterCustomer_Segment}    ${CURDIR}/configFiterMapA/Customer_Segment.txt
+${mapfiterFitness_and_Wellness}    ${CURDIR}/configFiterMapA/Fitness_and_Wellness.txt
+${mapfiterGadget_Lover}    ${CURDIR}/configFiterMapA/Gadget_Lover.txt
+${mapfiterGender}    ${CURDIR}/configFiterMapA/Gender.txt
+${mapfiterHandset_Type}    ${CURDIR}/configFiterMapA/Handset_Type.txt
+${mapfiterInsurance_Interests}    ${CURDIR}/configFiterMapA/Insurance_Interests.txt
+${mapfiterInvestment_Interests}    ${CURDIR}/configFiterMapA/Investment_Interests.txt
+${mapfiterMobile_Banking_Usage}    ${CURDIR}/configFiterMapA/Mobile_Banking_Usage.txt
+${mapfiterMonthly_Bill_Payment}    ${CURDIR}/configFiterMapA/Monthly_Bill_Payment.txt
+${mapfiterReal_Estate_Interests}    ${CURDIR}/configFiterMapA/Real_Estate_Interests.txt
+${mapfiterPrepaid_Postpaid_Subscription}    ${CURDIR}/configFiterMapA/Prepaid_Postpaid_Subscription.txt
+${mapfiterMusic_Interests}    ${CURDIR}/configFiterMapA/Music_Interests.txt
+${mapfiterSocial_Media}    ${CURDIR}/configFiterMapA/Social_Media.txt
+${mapfiterTravel_Distance}    ${CURDIR}/configFiterMapA/Travel_Distance.txt
+${mapfiterTravel_Interests}    ${CURDIR}/configFiterMapA/Travel_Interests.txt
+${mapfiterTrue_Application_Usage}    ${CURDIR}/configFiterMapA/True_Application_Usage.txt
+
+#@{url}           https://geopulse.truecorp.co.th/truesso/login     https://product-ext.tdg-analytics.io/firebase/login     https://geopulse.truecorp.co.th/mooc/login   #in
+#@{url}            https://geopulse-gprc.truecorp.co.th/truesso    https://geopulse-rc.tdg-analytics.io/firebase/login    https://geopulse-gprc.truecorp.co.th/mooc/login    #rc
+${BROWSER}    gc
+@{codes}          00    01
+${lineGrids}      9 Grids
+${Province}       Province
+${SELECTION_ID}    TH10
+${urlch}          https://geopulse-rc.tdg-analytics.io/firebase/generic-map/?viewport=13.836089975939805,100.60263118496019,13
+${Filetxts}       ${CURDIR}/ID/userid.txt
+@{idGridID}       ID: z14-w4rqnzyjmg84
+@{idDensity}      Last 7 Days / Everyday / 0:00 - 24:00
+@{data usege}     Postpaid
+@{idFilter}       Filters: ${data usege}[0]
+@{idlatlong}      13.756678,100.502745
+
+@{timesele}       Last 7 Days
+@{locationint}    ./img//int//imgint_case
+@{locationext}    ./img//ext//imgext_case
+@{locationmapb}    ./img//map_B//img_case
+@{locationintAFF}    ./img//AFF//imgext_case
+@{imgs}           _1//    _2//    _3//    _4//    _5//    _6//    _7//
+...               _8-9//    _9//    _10//    _11//    _12//    _13//    _14//
+...               _15//    _16//    _17//    _18//    _19//    _20//    _21//
+...               _22//    _23//    _24//    _25//    _26//    _27//    _28//
+...               _29//    _30//    _31//    _32//    _33//    _34//    _35//
+...               _36//    _37//    _38//    _39//    _40//    _41//    _42//
+...               _43//    _44//    _45//    _46//    _47//    _48//    _49//
+...               _50//    _51//    _52//    _53//    _54//    _55//    _56//
+...               _57//    _58//    _59//    _60//    _61//    _62//    _63//
+...               _64//    _65//    _66//    _67//    _68//    _69//    _70//
+...               _71//    _72//    _73//    _74//    _75//    _76//    _77//
+...               _78//    _79//    _80//    _81//    _82//    _83//    _84//
+...               _85//    _86//    _87//    _88//    _89//    _90//    _91//
+...               _92//    _93//    _94//    _95//    _96//    _97//    _98//
+...               _99//    _100//
+@{imgsto}         _8//
+${SQLQUERYmap}    ${CURDIR}/config/SQLQUERYmap.txt
+@{Heatmap_secect}    Number of houses    True Online Port Available    True Online Port Used    TOL Competitors
+@{Heatmap_secectmapB}    Number of houses    True Online Port Available    True Online Port Used    TOL Competitors
+
+#https://docs.google.com/spreadsheets/d/1DE5KJLIKM9ih-vYzHqeKQHGR5tMlluCgH3fUsMAkODc/edit#gid=1821449154
+@{lineDyacase0}      Last 3 Days / Everyday / 0:00 - 24:00
+@{lineDyacase1}      Last 7 Days / Everyday / 0:00 - 24:00
+@{lineDyacase2}      Last 30 Days / Everyday / 0:00 - 24:00
+@{lineDyacase3}      5 Jan 2021 - 19 Jan 2021 / Everyday / 0:00 - 24:00
+@{lineDyacase4}      Last 3 Days / Weekday / 0:00 - 24:00
+@{lineDyacase5}      Last 3 Days / Weekday / 7:00 - 10:00
+@{lineDyacase6}      Last 7 Days / Everyday / 0:00 - 24:00
+@{lineDyacase7}      Last 7 Days / Weekday / 12:00 - 13:00
+@{lineDyacase8}      Last 7 Days / Weekday / 17:00 - 19:00
+@{lineDyacase9}      Last 7 Days / Weekend / 0:00 - 24:00
+@{lineDyacase10}     Last 30 Days / Everyday / 0:00 - 24:00
+@{lineDyacase11}     Last 30 Days / Weekday / 7:00 - 10:00
+@{lineDyacase12}     Last 30 Days / Weekday / 12:00 - 13:00
+@{lineDyacase13}      Last 30 Days / Weekday / 17:00 - 19:00
+@{lineDyacase14}      Last 30 Days / Weekend / 0:00 - 24:00
+@{lineDyacase15}      Last 3 Days / Weekday / 12:00 - 13:00
+@{lineDyacase16}      9 Dec 2020 - 10 Dec 2020 / Weekday / 0:00 - 24:00
+
+
+#case4
+${caseSELECTIONID}    ID: z14-w4rqnzyjmg84
+#mapA
+${Time_Filte1}        ${CURDIR}/intmapA/Time_Filte.txt
+${idcase1FB}        ${CURDIR}/exmapA/Case1FB.txt
+${idcaseinfb}     ${CURDIR}/exmapA/CaseFBALL.txt
+${idcase1}        ${CURDIR}/exmapA/Case1.txt
+${idcase2}        ${CURDIR}/exmapA/Case2.txt
+${idcase3}        ${CURDIR}/exmapA/Case3.txt
+${idcase4}        ${CURDIR}/exmapA/Case4.txt
+${idcase5}        ${CURDIR}/exmapA/Case5.txt
+${idcase6}        ${CURDIR}/exmapA/Case6.txt
+${idcase7}        ${CURDIR}/exmapA/Case7.txt
+${idcase8}        ${CURDIR}/exmapA/Case8.txt
+${idcase10}       ${CURDIR}/exmapA/Case10.txt
+${idcasein1}      ${CURDIR}/intmapA/Case1.txt
+${idcaseinmooc}      ${CURDIR}/intmapA/usermooc.txt
+${idcaseintruesso}      ${CURDIR}/intmapA/usertruesso.txt
+${idcasein2}      ${CURDIR}/intmapA/Case2.txt
+${idcasein3}      ${CURDIR}/intmapA/Case3.txt
+${idcasein4}      ${CURDIR}/intmapA/Case4.txt
+${idcasein5}      ${CURDIR}/intmapA/Case5.txt
+${idcasein6}      ${CURDIR}/intmapA/Case6.txt
+${idcasein7}      ${CURDIR}/intmapA/Case7.txt
+${idcasein8}      ${CURDIR}/intmapA/Case8.txt
+${idcasein8.1}      ${CURDIR}/intmapA/Case8.1.txt
+${idcasein10}     ${CURDIR}/intmapA/Case10.txt
+${idcasein11}     ${CURDIR}/intmapA/Case11.txt
+${idcasein13}     ${CURDIR}/intmapA/Case13.txt
+#mapB
+${idcaseB1}       ${CURDIR}/intmapB/Case1.txt
+${idcaseB2}       ${CURDIR}/intmapB/Case2.txt
+${idcaseB3}       ${CURDIR}/intmapB/Case3.txt
+${idcaseB4}       ${CURDIR}/intmapB/Case4.txt
+${idcaseB5}       ${CURDIR}/intmapB/Case5.txt
+${idcaseB6}       ${CURDIR}/intmapB/Case6.txt
+${idcaseB7}       ${CURDIR}/intmapB/Case7.txt
+${idcaseB8}       ${CURDIR}/intmapB/Case8.txt
+${idcaseB9}       ${CURDIR}/intmapB/Case9.txt
+${idcaseBfitername}      ${CURDIR}/SELECT_fitermap.txt
+${idcaseBfiternameGeneral}      ${CURDIR}/intmapA/General_map_A_case_1_Map_A.txt
+${idcaseBfiternameFilter_map_A}      ${CURDIR}/intmapA/Filter_map_A_case_1_Map_A.txt
+${idcaseBfiternameGeneralmapB}      ${CURDIR}/exmapA/General_map_B_case_1_Map_B.txt

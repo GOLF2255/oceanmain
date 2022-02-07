@@ -1,0 +1,16 @@
+*** Settings ***
+Resource          variables.txt
+Resource          common/CommonKeywords.txt
+Variables         config/env_${ENV}.yaml
+*** Keywords ***
+
+Internal_login
+    Log To Console    ******
+    Open Browser With/Without Headless    ${ENV_URL.URL_GPRC}     ff  #${BROWSER}
+    Sleep    1s
+    go to    ${ENV_URL.URL_GPRC}
+    Maximize Browser Window
+    #Add Cookie    x-app-version    ${app-version}
+    #Log To Console    ${app-version}
+    #Click Element     //a[contains(@class,'TrueSSO-module__button___')]
+    #Wait Until Page Contains Element    //input[@name="callback_0"]     timeout=30s    #//input[@name="username"]callback_0

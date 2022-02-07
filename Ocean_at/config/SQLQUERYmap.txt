@@ -1,0 +1,1 @@
+bank_app.kma_user > 1 AND bank_app.kplus_user > 2 AND  bank_app.ktb_user > 3 AND bank_app.scb_user > 3 AND bank_app.tmb_user > 4

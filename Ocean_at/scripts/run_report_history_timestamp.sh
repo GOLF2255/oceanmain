@@ -1,0 +1,1 @@
+robot --timestampoutputs --log mylog.html --report NONE -i smoke  -d resultsHistory -v ENV:QA main.robot

@@ -1,0 +1,4 @@
+ENV_URL:
+  URL_GPRC: https://geopulse.truecorp.co.th/truesso/login
+  URL_RC: https://product-ext.tdg-analytics.io/firebase/login
+  URL_GPRC_MOOC: https://geopulse.truecorp.co.th/mooc/login

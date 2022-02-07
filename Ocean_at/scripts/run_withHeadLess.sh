@@ -1,0 +1,1 @@
+robot -d results -i test -v COMMON_IS_HEADLESS:TRUE -v ENV:QA main.robot
