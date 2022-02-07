@@ -4,7 +4,7 @@ name: CI GeoPulse Push
 on:
   push:
     paths:
-      - "geopulse_at/**"
+      - "Ocean_at/**"
 jobs:
     run_tests_on_push:
         runs-on: ubuntu-latest
@@ -16,7 +16,7 @@ jobs:
         - uses: actions/checkout@v2
         # create folder for test reports
         - name: Create folder for reports
-          run: mkdir $GITHUB_WORKSPACE/geopulse_at/reports
+          run: mkdir $GITHUB_WORKSPACE/Ocean_at/reports
 #          run: mkdir ./geopulse_at/reports
         # run Robot Framework tests inside Docker container
         - name: Run Robot Framework Tests
@@ -28,8 +28,8 @@ jobs:
           run: |
             docker run \
               -v /dev/shm:/dev/shm \
-              -v ${PWD}/geopulse_at/reports:/opt/robotframework/reports:Z \
-              -v ${PWD}/geopulse_at:/opt/robotframework/tests:Z \
+              -v ${PWD}/Ocean_at/reports:/opt/robotframework/reports:Z \
+              -v ${PWD}/Ocean_at:/opt/robotframework/tests:Z \
               -e ROBOT_OPTIONS="-i no -v ENV:QA -v PASSWORD_TRUESSO:${{ secrets.PASSWORD_TRUESSO }} -v PASSWORD_FIREBASE:${{ secrets.PASSWORD_FIREBASE }}" \
               -e BROWSER=chrome \
               --user $(id -u):$(id -g) \
@@ -43,16 +43,16 @@ jobs:
             ls $GITHUB_WORKSPACE
             echo "{PWD}:"
             echo "${PWD}:"
-            echo "{PWD}/geopulse_at:"
-            echo "${PWD}/geopulse_at"
-            echo "{PWD}/geopulse_at/reports:"
-            echo "${PWD}/geopulse_at/reports"
-            echo "List {PWD}/geopulse_at:"
-            ls ${PWD}/geopulse_at
+            echo "{PWD}/Ocean_at:"
+            echo "${PWD}/Ocean_at"
+            echo "{PWD}/Ocean_at/reports:"
+            echo "${PWD}/Ocean_at/reports"
+            echo "List {PWD}/Ocean_at:"
+            ls ${PWD}/Ocean_at
             echo "List {PWD}/reports:"
-            ls ${PWD}/geopulse_at/reports
-            echo "./geopulse_at/reports:"
-            ls ./geopulse_at/reports
+            ls ${PWD}/Ocean_at/reports
+            echo "./Ocean_at/reports:"
+            ls ./Ocean_at/reports
             echo "List /opt/robotframework:"
         # upload test reports as a zip file
         - name: Upload reports
@@ -60,7 +60,7 @@ jobs:
           if: always()
           with:
             name: reports
-            path: ./geopulse_at/reports #${{ github.workspace }}/reports
+            path: ./Ocean_at/reports #${{ github.workspace }}/reports
             retention-days: 5
         # repository name is needed for posting test report in a next step
         - name: Get Repository Owner & Name
@@ -78,4 +78,4 @@ jobs:
             REPO_OWNER: ${{ env.REPOSITORY_OWNER }}
             COMMIT_SHA: ${{ github.sha }}
             REPOSITORY: ${{ env.REPOSITORY_NAME }}
-            REPORT_PATH: ./geopulse_at/reports
+            REPORT_PATH: ./Ocean_at/reports
