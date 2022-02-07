@@ -31,7 +31,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="" />
+    <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -329,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644221156811</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="0">
+      <created>1644221498426</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1644221498426</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -344,7 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit error case login web app change name and edit case for dev" />
     <MESSAGE value="fixbug and config user" />
     <MESSAGE value="edit code" />
     <MESSAGE value="fixbug case 11" />
@@ -369,6 +377,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="test2" />
     <MESSAGE value="test3" />
-    <option name="LAST_COMMIT_MESSAGE" value="test3" />
+    <MESSAGE value="0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0" />
   </component>
 </project>
