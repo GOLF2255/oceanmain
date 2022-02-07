@@ -4,7 +4,7 @@ Library           SeleniumLibrary
 Library           OperatingSystem
 Library           String
 Library           Collections
-#Library           ExcelLibrary
+Library           ExcelLibrary
 #Library           CSVLib
 Library           Collections
 Library           OperatingSystem
@@ -12,10 +12,7 @@ Library           OperatingSystem
 *** Variables ***
 
 @{go_ordinary}  http://sitnbs.thaisamut.co.th/nbsweb/secure/combine2/newcaseshortly/ord/record/index.html?uuid=52fa53c133c53b84b587de54-f7ebf11
-
-
-
-
+${filename}    ${CURDIR}/config/config.xlsx
 
 
 
@@ -85,7 +82,7 @@ ${mapgeneralmapAmain}    ${CURDIR}/SE_generalmainMAP_A.txt
 ${mapgeneralmapB}    ${CURDIR}/SE_generalMAP_B.txt
 ${mapgeneralmapBmain}    ${CURDIR}/SE_generalmainMAP_B.txt
 ${app-version}     2-6-2
-
+${Filetxts}       ${CURDIR}/ID/userid.txt
 
 
 ${mapfiterAGE}    ${CURDIR}/configFiterMapA/AGE.txt
@@ -125,7 +122,7 @@ ${lineGrids}      9 Grids
 ${Province}       Province
 ${SELECTION_ID}    TH10
 ${urlch}          https://geopulse-rc.tdg-analytics.io/firebase/generic-map/?viewport=13.836089975939805,100.60263118496019,13
-${Filetxts}       ${CURDIR}/ID/userid.txt
+
 @{idGridID}       ID: z14-w4rqnzyjmg84
 @{idDensity}      Last 7 Days / Everyday / 0:00 - 24:00
 @{data usege}     Postpaid
