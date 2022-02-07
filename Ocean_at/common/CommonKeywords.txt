@@ -747,6 +747,7 @@ CommonKeywords.check_Lifestyle
 
 #=================ocean===================================================================
 set_abbreviated_page
+    [Arguments]    ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
     Go to   @{go_ordinary}
     Wait Until Page Contains Element   ${input_code_id}     timeout=120s
     Input Text    ${input_code_id}    5401105:     #config
@@ -759,13 +760,13 @@ set_abbreviated_page
     Sleep    2s
     Select From List By Value    //select[@name="cardCusType"]    1
     Sleep    1s
-    Input Text    //input[@name="cardCusNumberAdd"]    1545281551730
+    Input Text    //input[@name="cardCusNumberAdd"]    ${id_thai}
     Sleep    2s
-    Input Text    //input[@name="prefixCus"]    นาย
+    Input Text    //input[@name="prefixCus"]    ${prefix}
     Sleep    5s
     Click Element  xpath=//ul[@class="yui3-aclist-list"]/li[@data-text="นาย"]      #[data-text("นาย")]
-    Input Text    //input[@name="nameCusAdd"]    สมคิด
-    Input Text    //input[@name="surnameCusAdd"]    ออโต้
+    Input Text    //input[@name="nameCusAdd"]    ${name}
+    Input Text    //input[@name="surnameCusAdd"]  ${Surname}
     Input Text    //input[@name="birthDateCus"]      12012534
     Click Element    //input[@name="genderCus"]
     Click Element    //input[@name="confirmSelfie"]
@@ -774,7 +775,7 @@ set_abbreviated_page
     handle alert  dismiss
     Sleep    5s
     Wait Until Page Contains    อาชีพ    timeout=120s
-    Input Text    //input[@name="requestId"]    8930836
+    Input Text    //input[@name="requestId"]    ${request_number}
     Input Text    //input[@name="expireDate"]  14012585
     Select From List By Value    //select[@name="checkCard"]    12-0
     Input Text    //input[@name="phoneMobile"]    0800000000

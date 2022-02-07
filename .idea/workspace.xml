@@ -33,7 +33,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/Case__001.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Case__001.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/Internal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Internal.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/config/เวิร์กชีต Microsoft Excel ใหม่.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/variables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/variables.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -346,7 +350,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644221679093</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="02">
+      <created>1644222076122</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1644222076122</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -361,7 +372,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit code" />
     <MESSAGE value="fixbug case 11" />
     <MESSAGE value="edit error case login web app change name and edit case for dev mooc" />
     <MESSAGE value="Added 5 heatmap options for map B" />
@@ -386,6 +396,7 @@
     <MESSAGE value="test3" />
     <MESSAGE value="0" />
     <MESSAGE value="01" />
-    <option name="LAST_COMMIT_MESSAGE" value="01" />
+    <MESSAGE value="02" />
+    <option name="LAST_COMMIT_MESSAGE" value="02" />
   </component>
 </project>

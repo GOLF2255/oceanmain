@@ -1,6 +1,7 @@
 *** Settings ***
 Resource          variables.txt
 Resource    common/CommonKeywords.txt
+Library           ExcelLibrary
 *** Keywords ***
 deas
     Open Browser    ${url}    @{gch}
@@ -10,13 +11,20 @@ create_ordinary
   ${Filetagcase1}=    Get File    ${Filetxts}
   @{listcase1}=    Split to lines    ${Filetagcase1}
 
+  Open Excel Document   D://Git//Ocean_at//config//config.xlsx   doc_id=doc1
+  Log To Console    ${filename}
+  ${prefix}=	Read Excel Cell	row_num=2	col_num=1
+  ${name}=	Read Excel Cell	row_num=2	col_num=2
+  ${Surname}=	Read Excel Cell	row_num=2	col_num=3
+  ${id_thai}=	Read Excel Cell	row_num=2	col_num=4
+  ${request_number}=	Read Excel Cell	row_num=2	col_num=5
   Internal_login
   Log To Console    ******
   Log To Console    case 1
   Log To Console    @{listcase1}
   CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
   Wait Until Page Contains    ออกจากระบบ    timeout=120s
-  CommonKeywords.set_abbreviated_page
+  CommonKeywords.set_abbreviated_page  ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
 
   Sleep    20000s
   Sleep    20s
