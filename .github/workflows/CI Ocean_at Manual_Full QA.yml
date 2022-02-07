@@ -10,7 +10,6 @@ jobs:
         strategy:
           matrix:
             python-version: [3.7]
-            excel: 2.0.0-null-safety
         steps:
         # checkout code from a repository
         - uses: actions/checkout@v2
