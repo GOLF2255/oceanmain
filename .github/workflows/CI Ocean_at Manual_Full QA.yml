@@ -29,7 +29,7 @@ jobs:
               -v ${PWD}/Ocean_at/reports:/opt/robotframework/reports:Z \
               -v ${PWD}/Ocean_at:/opt/robotframework/tests:Z \
               -e ROBOT_OPTIONS="-i TESTRC -v ENV:QA -v PASSWORD_TRUESSO:${{ secrets.PASSWORD_TRUESSO }} -v PASSWORD_FIREBASE:${{ secrets.PASSWORD_FIREBASE }}" \
-              -e BROWSER=firefox \
+              -e BROWSER=chrome \
               --user $(id -u):$(id -g) \
               --user=1001:1001 \
               ppodgorsek/robot-framework:latest
