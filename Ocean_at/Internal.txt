@@ -6,7 +6,7 @@ Variables         config/env_${ENV}.yaml
 
 Internal_login
     Log To Console    ******
-    Open Browser With/Without Headless    ${ENV_URL.URL_GPRC}     ff  #${BROWSER}
+    Open Browser With/Without Headless    ${ENV_URL.URL_GPRC}     gc  #${BROWSER}
     Sleep    1s
     go to    ${ENV_URL.URL_GPRC}
     Maximize Browser Window
