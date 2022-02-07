@@ -1,0 +1,16 @@
+*** Settings ***
+Resource          variables.txt
+Resource          common/CommonKeywords.txt
+Variables         config/env_${ENV}.yaml
+
+*** Keywords ***
+
+External_login
+    Log To Console    ******
+    Open Browser With/Without Headless    ${ENV_URL.URL_RC}    ${BROWSER}
+    Sleep    1s
+    go to     ${ENV_URL.URL_RC}
+    Maximize Browser Window
+    Add Cookie    x-app-version    ${app-version}
+    Log To Console    ${app-version}
+    Wait Until Page Contains    Sign in with email

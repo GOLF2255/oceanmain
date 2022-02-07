@@ -1,0 +1,10 @@
+somearea_gmd1@mail.com
+somearea_gmd2@mail.com
+somearea_region1@mail.com
+somearea_region2@mail.com
+somearea_hop1@mail.com
+somearea_hop2@mail.com
+somearea_aa1@mail.com
+somearea_aa2@mail.com
+somearea_scab1@mail.com
+somearea_scab2@mail.com

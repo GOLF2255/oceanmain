@@ -1,0 +1,1135 @@
+*** Settings ***
+Library           SeleniumLibrary
+Resource          ../variables.txt
+*** Variables ***
+
+
+${input_code_id}   //input[@id="agent-code-name"]
+${additional_contract}   //button[@id="bAdditionalContract"]
+${button_contract}   //div[@id="rider-panel"]//div[@class="yui3-widget-ft"]//span[@class='yui3-widget-buttons']//button[@class='yui3-button']
+
+
+
+
+
+
+
+
+
+#=======
+
+
+
+
+
+${COMMON_IS_HEADLESS}     FALSE
+${COMMON_IS_SCREENSHOT}     FALSE
+${LOGINPAGE_INPUT_USERNAME_MO}    name=username
+${LOGINPAGE_BUTTON_LOGIN_MO}    id=password
+${LOGINPAGE_BUTTON_LOGIN_LON_MO}     name=login
+${LOGINPAGE_INPUT_USERNAME}    //input[@id="username"]  #//input[@name="callback_0"]   devops certificate
+${LOGINPAGE_INPUT_PASSWORD}    //input[@name="j_password"]
+${LOGINPAGE_BUTTON_LOGIN}     //button[@name="loginButton"]    #name=login
+${LOGINPAGE_EXTERNAL_INPUT_EMAIL}    id=ui-sign-in-email-input
+${LOGINPAGE_EXTERNAL_BUTTON_NEXT}    xpath=//button[contains(@class,'firebaseui-id-submit')]
+${LOGINPAGE_EXTERNAL_INPUT_PASSWORD}    name=password
+
+${HOMEPAGE_BUTTON_POINTER}    //i[@class="icon-pointer"]
+${HOMEPAGE_BUTTON_HAMBURGER_MENU}    //i[@class="icon-hamburger"]
+${HOMEPAGE_LINK_NON_SELECTED_MAP}    //a[@href="/truesso/true-map"]     #//a[@class="menu-panel-module__text___3vNzr"]
+${HOMEPAGE_LINK_NON_SELECTED_MAP_FB}      //a[@href="/truesso/true-map"]
+${HOMEPAGE_TRUE_MAP_BUTTON_ADVANCED_AREA_FILTER}    //button[@title="Advanced Area Filter"]
+${HOMEPAGE_TRUE_MAP_TEXTAREA_ADVANCED_AREA_FILTER}    //textarea[contains(@class,'field-suggestion-module__textArea___')]
+${HOMEPAGE_TRUE_MAP_BUTTON_SUBMIT_ADVANCED_AREA_FILTER}    //button[contains(@class,'btn size-small advanced-area-filter-module__btnSearch')]
+${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}    //P[contains(@class,'advanced-area-filter-search-result-module__amount___')]
+
+${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}    xpath=(//button[@title="Time Filter"])
+${HOMEPAGE_GENERIC_MAP_BUTTON_FEATURE_FILTER}    xpath=(//button[@title="Feature Filter"])
+
+${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}    //span[@class="title"]
+${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}    xpath=(//button[@class="btn size-small"])[2]
+${HOMEPAGE_BUTTON_FEATURE_FILTER_APPLY}   xpath=(//button[@class="btn size-small"])[5]
+${HOMEPAGE_LABEL_FEATURE_FILTER_PROFILE_TYPE}    //label[@for="mainMap_f_profile_customer_type"]
+${HOMEPAGE_DEFAULT_VIEW}      //div[@id="view-default-view"]
+${HOMEPAGE_BUTTON_EXPORT}      //i[@class="icon-export"]
+${HOMEPAGE_EXPORT_MESSAGE}   Grid/Polygon data exported
+
+${HOMEPAGE_BUTTON_HEATMAP_DENSITY}   //button[@title="Heatmap Density Option"]
+${HOMEPAGE_BUTTON_NON_SELECTED_MAP_TYPE}    //button[contains(@class,'active btn type-tool map-style-control-module__button')]
+${SELECTED_MAP_Layers}    //button[@title="Layers"]
+${SELECTED_MAP_day30}    //span[@title="Last 30 Days"]
+${SELECTED_MAP_day7}    //span[@title="Last 7 Days"]
+${SELECTED_MAP_week}    //div[@class="time-filter-options day-of-week "]
+${SELECTED_MAP_week_END}    xpath=(//button[@class="btn style-block type-plain size-medium button day-of-week-button"])[3]
+${SELECTED_MAP_week_in}    xpath=(//button[@class="btn style-block type-plain size-medium button day-of-week-button"])[2]
+${SELECTED_MAP_week_top}    xpath=(//button[@class="btn style-block type-plain size-medium button day-of-week-button"])[1]
+${SELECTED_MAP_days7}   xpath=(//span[@class="rdrDayNumber"])[11]
+${SELECTED_MAP_day8}   xpath=(//span[@class="rdrDayNumber"])[12]
+${SELECTED_MAP_day6}   xpath=(//span[@class="rdrDayNumber"])[10]
+${SELECTED_MAP_day9}   xpath=(//span[@class="rdrDayNumber"])[13]
+${SELECTED_MAP_day20}   xpath=(//span[@class="rdrDayNumber"])[24]
+
+${SELECTED_Apply}   xpath=(//button[@class="btn size-small"])[3]
+${SELECTED_Allday}   xpath=(//span[@class="title"])[3]
+${SELECTED_MAP_ime_inverval}    xpath=(//button[@class="btn style-block type-plain size-medium button time-inverval-button"])[2]
+${SELECTED_MAP_ime_lunch}    xpath=(//button[@class="btn style-block type-plain size-medium button time-inverval-button"])[3]
+${SELECTED_MAP_ime_Evening}    xpath=(//button[@class="btn style-block type-plain size-medium button time-inverval-button"])[4]
+${SELECTED_MAP_ime_invervaltop}    xpath=(//button[@class="btn style-block type-plain size-medium button time-inverval-button"])[1]
+${SELECTED_Alldayinvral}   xpath=(//button[@class="btn size-small"])[4]
+${SELECTED_compare}     //i[@class="icon-compare"]
+${SELECTED_out}     //button[@id="zoom-out"]
+${SELECTED_in}      //i[@class="icon-increase"]
+${SELECTED_radius}      //i[@class="icon-radius"]
+${SELECTED_tagsMapB}      //button[@class="btn type-tool"]
+${SELECTED_tagsMapB_D}    xpath=(//span[@class="text"])[2]
+${SELECTED_tagsMapB_T}    xpath=(//span[@class="text"])[3]
+${SELECTED_tagsMapB_N}    xpath=(//span[@class="text"])[4]
+${SELECTED_tagsMapB_M}    xpath=(//span[@class="text"])[5]
+${SELECTED_tagsMapB_C}    xpath=(//span[@class="text"])[6]
+${SELECTED_tagsMapB_I}    xpath=(//span[@class="text"])[7]
+${SELECTED_cusrom}    xpath=(//div[@class="text"])[2]
+${SELECTED_pois}   //span[contains(@class,'poi-upload-module__text___')]
+${SELECTED_Button_pois}    xpath=(//button[@class="btn size-small"])[6]
+${SELECTED_File_pois}    //input[@accept=".csv, text/csv, application/vnd.ms-excel, application/csv"]
+
+
+
+
+
+
+
+*** Keywords ***
+#======= Set up the common variables for AFF cases - All AFF cases ======
+Set up the common variables for AFF cases
+    [Arguments]    ${idcase}
+    ${linelist}=    Create List    ${codes}[0]
+    ${linelistt}=    Create List    ${codes}[0]
+    ${File}=    Get File    ${idcase}
+    ${listcase2}=    Split to lines    ${File}
+    ${Filetag}=    Get File    ${idTag}
+    @{listtag}=    Split to lines    ${Filetag}
+    ${File}=    Get File    ${Filetmapb}
+    ${list}=    Split to lines    ${File}
+    [Return]    ${listtag}     ${list}   ${linelistt}    ${linelist}    ${listcase2}
+#====================================================================================
+#=======Click MAP ======
+ClickmaptimemultipleVIEW
+    Sleep    30s
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+#=======Click MAP SELECTED_radius======
+Clickmapradius
+    Sleep    30s
+    Click Element    ${SELECTED_radius}
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+
+#=======Click MAP ======
+Clickmaptimemultiple
+    Sleep    30s
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+    Click Element    ${SELECTED_compare}
+#====================================================================================
+
+
+#======= Set up the common variables for Click Filter cases ======
+Set up the common variables for fiter cases
+    [Arguments]    ${idcase}    ${idcaseBfiter_name}
+
+    ${File}=    Get File    ${idcase}
+    ${listcase2}=    Split to lines    ${File}
+    ${Filefiter}=    Get File    ${idcaseBfiter_name}
+    @{listfiter}=    Split to lines    ${Filefiter}
+
+
+
+
+    [Return]    ${listcase2}    @{listfiter}
+
+Click Filter
+    Wait Until Page Contains Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}    timeout=15s
+    Click Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}
+    Sleep    15s
+Click map
+    Click Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+    Sleep    3s
+    Click Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}
+
+
+#====================================================================================
+
+#======= Run the test cases scripts either in normal mode or Headless mode through the variable COMMON_IS_HEADLESS======
+Open Browser With/Without Headless
+    [Arguments]    ${url}  ${browser}
+    run keyword if    '${COMMON_IS_HEADLESS}' == 'TRUE'    Open Browser    ${url}    headlesschrome
+    ...    ELSE    Open Browser    ${url}    ${browser}
+#====================================================================================
+
+Take screenshot by flag IS_SCREENSHOT
+    [Arguments]     ${imagePath}
+    run keyword if    '${COMMON_IS_SCREENSHOT}' == 'TRUE'    Capture Page Screenshot    ${imagePath}
+
+#======= demoQA ======
+demoQA
+        wait until page contains Element    //a[@id="u_0_2"]
+        Click Link    //a[@id="u_0_2"]
+        wait until page contains Element    name=firstname
+        Input Text    name=firstname    ijiahd
+        Input Text   //input[@name="lastname"]    hui
+        Sleep    1s
+        Input Text    //input[@name="reg_email__"]      sjkdakdj@hotmail.com
+        Input Text   //input[@name="reg_email_confirmation__"]    sjkdakdj@hotmail.com
+        Input Password  id=password_step_input    ASFAEGAKFHASFIJIL432432
+        Select From List By Value    //select[@name="birthday_day"]    16
+        Select From List By Value    //select[@name="birthday_month"]    9
+        Select From List By Value    //select[@name="birthday_year"]    2001
+        Click Element    //input[@value="2"]
+        Click Element    //button[@name="websubmit"]
+
+#==================
+#======= Login Internally via the URL in Internal_login.txt - TC_0XX_int -> TC_0XX_AFF======
+Login with Username and Password
+    [Arguments]    ${username}      ${password}
+    Input Text    ${LOGINPAGE_INPUT_USERNAME}    ${username}
+    Input Text    ${LOGINPAGE_INPUT_PASSWORD}    ${password}
+    Wait Until Page Contains Element    ${LOGINPAGE_BUTTON_LOGIN}    timeout=120s
+    Sleep    0.5s
+    Click Element    ${LOGINPAGE_BUTTON_LOGIN}
+
+#====================================================================================
+======= Login Internally via the URL in Internal_login.txt - TC_0XX_int -> TC_0XX_AFF======
+Login Internally with Username and Password for dev mooc
+    [Arguments]    ${username}      ${password}     ${imagePath}
+    Wait Until Page Contains Element    ${LOGINPAGE_INPUT_USERNAME_MO}    timeout=30s
+    Input Text    ${LOGINPAGE_INPUT_USERNAME_MO}    ${username}
+    Input password    ${LOGINPAGE_BUTTON_LOGIN_MO}    ${password}
+    Click Element    ${LOGINPAGE_BUTTON_LOGIN_LON_MO}
+
+#====================================================================================
+Login Internally with Username and Password for dev
+    [Arguments]    ${username}      ${password}     ${imagePath}
+    Input Text    ${LOGINPAGE_INPUT_USERNAME}    ${username}
+    Input password    ${LOGINPAGE_INPUT_PASSWORD}    ${password}
+    Click Element    ${LOGINPAGE_BUTTON_LOGIN}
+
+#====================================================================================
+#======= Login via the URL in logintruesso - TC_013======
+Login With TrueSSO with Username and Password
+    [Arguments]    ${username}      ${password}     ${imagePath}
+    Input Text    ${LOGINPAGE_INPUT_USERNAME}    ${username}
+    Input password    ${LOGINPAGE_INPUT_PASSWORD}    ${password}
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+    Click Element    ${LOGINPAGE_BUTTON_LOGIN}
+#====================================================================================
+
+#======= Login Exterally via the URL in External_login.txt - TC_001 -> TC_010======
+Login Exterally with Userame and Password
+    [Arguments]    ${email}      ${password}     ${imagePath}
+    Input text    ${LOGINPAGE_EXTERNAL_INPUT_EMAIL}    ${email}
+    Click Element    ${LOGINPAGE_EXTERNAL_BUTTON_NEXT}
+    Wait Until Page Contains Element    ${LOGINPAGE_EXTERNAL_INPUT_PASSWORD}
+    Input password    ${LOGINPAGE_EXTERNAL_INPUT_PASSWORD}    ${password}
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+    Click Element    ${LOGINPAGE_EXTERNAL_BUTTON_NEXT}
+    Wait Until Page Contains Element    ${HOMEPAGE_BUTTON_POINTER}    timeout=60s
+#====================================================================================
+#======= test for dev======
+Login Exterally with Userame and Password dev
+    [Arguments]    ${email}      ${password}    ${INDEXcase}
+    Input text    ${LOGINPAGE_EXTERNAL_INPUT_EMAIL}    ${email}
+    Click Element    ${LOGINPAGE_EXTERNAL_BUTTON_NEXT}
+    Wait Until Page Contains Element    ${LOGINPAGE_EXTERNAL_INPUT_PASSWORD}
+    Input password    ${LOGINPAGE_EXTERNAL_INPUT_PASSWORD}    ${password}
+    Take screenshot by flag IS_SCREENSHOT    ${INDEXcase}
+    Click Element    ${LOGINPAGE_EXTERNAL_BUTTON_NEXT}
+    Wait Until Page Contains Element    ${HOMEPAGE_BUTTON_POINTER}    timeout=60s
+#====================================================================================
+
+
+
+#======= Select the Time filter from the Generic Map - TC_001 -> TC_004======
+Home page - Select the time filter
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    //span[@title="${timefilter_option}"]
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+    Sleep    2s
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew2======
+Home page - Select the time filterdaynew2
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Sleep    2s
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew3======
+Home page - Select the time filterdaynew3
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day6}
+    Click Element    ${SELECTED_MAP_day20}
+    Sleep    2s
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew4======
+Home page - Select the time filterdaynew4
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Sleep    2s
+    Click Element    ${SELECTED_Apply}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew5======
+Home page - Select the time filterdaynew5
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Sleep    2s
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_inverval}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew6======
+Home page - Select the time filterdaynew6
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day7}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_top}
+    Click Element    ${SELECTED_Apply}
+    Sleep    2s
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_invervaltop}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+#======= Select the time filterdaynew7======
+Home page - Select the time filterdaynew7
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day7}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_lunch}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+#======= Select the time filterdaynew8======
+Home page - Select the time filterdaynew8
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day7}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_Evening}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew9======
+Home page - Select the time filterdaynew9
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day7}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_END}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_invervaltop}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew10======
+Home page - Select the time filterdaynew10
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_top}
+    Click Element    ${SELECTED_Apply}
+    Sleep    2s
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_invervaltop}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew11======
+Home page - Select the time filterdaynew11
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Sleep    2s
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_inverval}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew12======
+Home page - Select the time filterdaynew12
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_lunch}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+#======= Select the time filterdaynew13======
+Home page - Select the time filterdaynew13
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_Evening}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew14======
+Home page - Select the time filterdaynew14
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_day30}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_END}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_invervaltop}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew15======
+Home page - Select the time filterdaynew15
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Click Element    ${SELECTED_MAP_ime_lunch}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the time filterdaynew16======
+Home page - Select the time filterdaynew16
+    [Arguments]    ${timefilter_option}    ${imagePath}
+    Wait Until Page Contains Element     ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_TIME_FILTER}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_FIRST_OPTION}
+    Click Element    ${SELECTED_MAP_days7}
+    Click Element    ${SELECTED_MAP_day8}
+    Click Element    ${HOMEPAGE_BUTTON_TIME_FILTER_APPLY}
+    Click Element    ${SELECTED_MAP_week}
+    Click Element    ${SELECTED_MAP_week_in}
+    Click Element    ${SELECTED_Apply}
+    Click Element    ${SELECTED_Allday}
+    Sleep    2s
+    Click Element    ${SELECTED_Alldayinvral}
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+
+
+
+#======= Select the Feature filter from the Generic Map - TC_001 -> TC_004======
+Home page - Select the feature filter
+    [Arguments]    ${feature_option}    ${imagePath}
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_FEATURE_FILTER}
+    Click Element    ${HOMEPAGE_LABEL_FEATURE_FILTER_PROFILE_TYPE}
+    Click Element    //span[@title="${feature_option}"]
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+    Sleep    2s
+    Click Element    ${HOMEPAGE_BUTTON_FEATURE_FILTER_APPLY}
+    Sleep    15s
+    Wait Until Page Contains Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+#======= Select the Feature filter Map - TC_001 ======
+
+Home page - Select the feature filternew
+
+    Click Button    ${HOMEPAGE_GENERIC_MAP_BUTTON_FEATURE_FILTER}
+
+     FOR    ${index}    IN RANGE    0   26
+        Log To Console    ${index}
+        Click Element    xpath=(//label[@for="@{mapfiter2}[${index}]"])
+        Sleep    1s
+   END
+
+#====================================================================================
+#======= Select the Feature Export Map - TC_003 ======
+
+Select_zoomout
+     [Arguments]    ${casenumber}
+     FOR    ${index}    IN RANGE    0   ${casenumber}
+        Wait Until Page Contains Element     ${SELECTED_out}
+        Click Element    ${SELECTED_out}
+        Sleep    1s
+   END
+#====================================================================================
+#======= Select the Feature Export Map - TC_003 ======
+
+Select_zoomin
+     Sleep    3s
+     [Arguments]    ${casenumberin}
+     FOR    ${index}    IN RANGE    0   ${casenumberin}
+        Click Element    ${SELECTED_in}
+        Sleep    1s
+   END
+#====================================================================================
+
+
+
+#======= Select the general Map - TC_001 ======
+
+Home page - Select the general
+
+    Click Button    ${SELECTED_MAP_Layers}
+#======= Set up the common variables for Click Filter cases ======
+Set up the common variables for general
+    [Arguments]    ${idcase}
+
+    ${File}=    Get File    ${idcase}
+    ${listcase2}=    Split to lines    ${File}
+    [Return]    ${listcase2}
+
+#====================================================================================
+#======= Export data by clicking the Export button - TC_001 -> TC_004======
+Home page - Export data
+    [Arguments]    ${imagePath}
+    ${resuexport}=    Run Keyword And Return Status    Click Element    ${HOMEPAGE_BUTTON_EXPORT}
+    ${resultASDAS}=    Run Keyword And Return Status    Wait Until Page Contains    ${HOMEPAGE_EXPORT_MESSAGE}    error=true
+    Run Keyword If    '${resuexport}'=='True' and '${resultASDAS}'=='True'    Log To Console    >>>>>>>Export= Pass <<<<<<<<<<<
+    Run Keyword If    '${resuexport}'=='False' and '${resultASDAS}'=='False'    Log To Console    >>>>>>>Export= False <<<<<<<<<<<
+    Run Keyword If    '${resuexport}'=='True' and '${resultASDAS}'=='False'    Log To Console    >>>>>>>Export= False <<<<<<<<<<<
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+#====================================================================================
+#======= Switch from the default Generic Map to True Corp Map - All AFF cases ======
+Home page - Switch map fb
+    [Arguments]    ${image_path_before_switch_menu}    ${image_path_after_switch_menu}
+    Click Element    ${HOMEPAGE_BUTTON_HAMBURGER_MENU}
+    Wait Until Page Contains    Log    timeout=15s
+    Sleep    3s
+    Take screenshot by flag IS_SCREENSHOT    ${image_path_before_switch_menu}
+    Click Link    ${HOMEPAGE_LINK_NON_SELECTED_MAP_FB}
+    Sleep    5s
+    Take screenshot by flag IS_SCREENSHOT    ${image_path_after_switch_menu}
+    Wait Until Page Contains Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}    timeout=15s
+#====================================================================================
+#======= Switch from the default Generic Map to True Corp Map - All AFF cases ======
+Home page - Switch map
+    [Arguments]    ${image_path_before_switch_menu}    ${image_path_after_switch_menu}
+    Click Element    ${HOMEPAGE_BUTTON_HAMBURGER_MENU}
+    Wait Until Page Contains    Log    timeout=15s
+    Sleep    3s
+    Take screenshot by flag IS_SCREENSHOT    ${image_path_before_switch_menu}
+    Click Element    ${HOMEPAGE_LINK_NON_SELECTED_MAP}
+    Sleep    5s
+    Take screenshot by flag IS_SCREENSHOT    ${image_path_after_switch_menu}
+    Wait Until Page Contains Element    ${HOMEPAGE_BUTTON_HEATMAP_DENSITY}    timeout=15s
+#====================================================================================
+#======= Submit the search condition ${INDEXSQLget} to the advanced filter  cases 3======
+Home page - Advanced Area Filter in True Corp Map case 3
+    [Arguments]    ${INDEXSQLget}
+    Input Text    ${HOMEPAGE_TRUE_MAP_TEXTAREA_ADVANCED_AREA_FILTER}    ${INDEXSQLget}
+    Click Element    ${HOMEPAGE_TRUE_MAP_BUTTON_SUBMIT_ADVANCED_AREA_FILTER}
+    ${resultdataSQL}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}  timeout=30s    error=false
+    Run Keyword If    '${resultdataSQL}'=='False'    Log To Console   >>>>>>>SQL=Sorry, We couldn't find any result matching search criteria above  >>>>false <<<<<<<<<<<
+    #${filter_result}=    Get Text    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}
+    ${resultdataSQLq}=    Run Keyword And Return Status     Get Text    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}
+    #Run Keyword If    '${resultdataSQLq}'=='False'    Log To Console   >>>>>>>SQL=>>>>Sorry, We couldn't find any result matching search criteria above <<<<<<<<<<<
+    Run Keyword If    '${resultdataSQLq}'=='True'     Log To Console   >>>>>>>SQL=>>>>PASS <<<<<<<<<<<
+    [Return]    ${resultdataSQLq}
+#======= Submit the search condition ${INDEXSQLget} to the advanced filter - All AFF cases ======
+Home page - Advanced Area Filter in True Corp Map
+    [Arguments]    ${INDEXSQLget}
+    Sleep    5s
+    Click Button    ${HOMEPAGE_TRUE_MAP_BUTTON_ADVANCED_AREA_FILTER}
+    Input Text    ${HOMEPAGE_TRUE_MAP_TEXTAREA_ADVANCED_AREA_FILTER}    ${INDEXSQLget}
+    Click Element    ${HOMEPAGE_TRUE_MAP_BUTTON_SUBMIT_ADVANCED_AREA_FILTER}
+    ${resultdataSQL}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}  timeout=30s    error=false
+    Run Keyword If    '${resultdataSQL}'=='False'    Log To Console   >>>>>>>SQL=Sorry, We couldn't find any result matching search criteria above  >>>>false <<<<<<<<<<<
+    #${filter_result}=    Get Text    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}
+    ${resultdataSQLq}=    Run Keyword And Return Status     Get Text    ${HOMEPAGE_TRUE_MAP_TEXT_RESULT_ADVANCED_AREA_FILTER}
+    #Run Keyword If    '${resultdataSQLq}'=='False'    Log To Console   >>>>>>>SQL=>>>>Sorry, We couldn't find any result matching search criteria above <<<<<<<<<<<
+    Run Keyword If    '${resultdataSQLq}'=='True'     Log To Console   >>>>>>>SQL=>>>>PASS <<<<<<<<<<<
+    [Return]    ${resultdataSQLq}
+#====================================================================================
+
+#======= Switch from the default map type to the other (Street <-> Satellite) - TC_001_mapB ======
+Home page - Switch from the default map type to the other
+    [Arguments]    ${imagePath}
+    Click Button    ${HOMEPAGE_BUTTON_NON_SELECTED_MAP_TYPE}
+    Sleep    3s
+    Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+#====================================================================================
+
+
+#======= Verify if the page contains the expected text - TC_001 -> TC_004 ======
+new case Time1
+    [Arguments]    ${Dyacase_text}    ${type}
+    Wait Until Page Contains    ${Dyacase_text}    timeout=15s
+    Log To Console    >>>>>>>${type}=${Dyacase_text}
+
+#====================================================================================
+#=======Click MAP ======
+Clickmaptime
+    Sleep    60s
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+
+
+#======= Verify if the page contains the expected text - TC_001 -> TC_004 ======
+Verify if the page contains the expected text
+    [Arguments]    ${expected_text}    ${type}
+    Sleep    10s
+    ${result}=    Run Keyword And Return Status    Wait Until Page Contains    ${expected_text}    error=true
+    Run Keyword If    '${result}'=='True'    Log To Console    >>>>>>>${type}=${expected_text} >>>>Pass <<<<<<<<<<<
+    Run Keyword If    '${result}'=='False'    Log To Console    >>>>>>>${type}=${expected_text} >>>>false <<<<<<<<<<<
+#====================================================================================
+
+#======= Verify if the page contains the element - All AFF cases ======
+Verify if the page contains the element
+    [Arguments]    ${expected_element}    ${type}
+    ${result} =    Run Keyword And Return Status    Wait Until Page Contains Element    ${expected_element}    timeout=15s
+    Run Keyword If    '${result}'=='True'    Log    >>>>>>>${type}=Pass<<<<<<<<<<<
+    Run Keyword If    '${result}'=='False'    Log To Console    >>>>>>>${type}=False<<<<<<<<<<<
+#====================================================================================
+
+#======= Verify if the page contains the element - All AFF cases ======
+Click element and check if it is clicked successfully
+    [Arguments]    ${expected_element}    ${type}
+    ${result} =    Run Keyword And Return Status    Click Element    ${expected_element}
+    Run Keyword If    '${result}'=='True'    Log To Console    >>>>>>>${result}=Pass<<<<<<
+    Run Keyword If    '${result}'=='False'    Log To Console    >>>>>>>${result}=False<<<<<<
+#====================================================================================
+
+#======= Zoom the default view - All AFF cases ======
+zoom map AFF
+    [Arguments]    ${zoom_times}    ${imagePath}
+    Sleep    2s
+    FOR  ${index}    IN RANGE  ${zoom_times}
+        Wait Until Page Contains Element        ${HOMEPAGE_DEFAULT_VIEW}
+        Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+        Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+        Sleep    10s
+    END
+   Take screenshot by flag IS_SCREENSHOT    ${imagePath}
+#====================================================================================
+#=======clickmapB======
+CommonKeywords.clickmapB
+    Sleep    10s
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+CommonKeywords.clictwokmapB
+    Sleep    10s
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+    Click Element    ${HOMEPAGE_DEFAULT_VIEW}
+#====================================================================================
+CommonKeywords.clicktagsmapB
+    Wait Until Page Contains Element    ${SELECTED_tagsMapB}      timeout=60s
+    Click Element     ${SELECTED_tagsMapB}
+    Click Element    ${SELECTED_tagsMapB_D}
+    Click Element    ${SELECTED_tagsMapB_T}
+    Click Element    ${SELECTED_tagsMapB_N}
+    Click Element    ${SELECTED_tagsMapB_M}
+    Click Element    ${SELECTED_tagsMapB_C}
+    Click Element    ${SELECTED_tagsMapB_I}
+
+#====================================================================================
+Click_Layers
+    [Arguments]    ${Paths}
+    Wait Until Page Contains      layers used    timeout=60s
+    Click Button    ${SELECTED_MAP_Layers}
+    Wait Until Page Contains Element    ${SELECTED_cusrom}    timeout=60s
+    Click Element    ${SELECTED_cusrom}
+    Wait Until Page Contains Element   ${SELECTED_pois}      timeout=60s
+    ${resulatmClickload} =    Run Keyword And Return Status    Click Element    ${SELECTED_pois}
+    Run Keyword If    '${resulatmClickload}'=='True'    Log To Console    >>>>>>>Click upload poi=Pass<<<<<<
+    Run Keyword If    '${resulatmClickload}'=='False'    Log To Console    >>>>>>>Click upload poi=False<<<<<<
+    ${resulatmload} =    Run Keyword And Return Status    Choose File     ${SELECTED_File_pois}     ${Paths}
+    Run Keyword If    '${resulatmload}'=='True'    Log To Console    >>>>>>>upload =Pass<<<<<<
+    Run Keyword If    '${resulatmload}'=='False'    Log To Console    >>>>>>>upload=False<<<<<<
+    Click Element     ${SELECTED_Button_pois}
+    Wait Until Page Contains    The system is unable to upload        timeout=60s
+
+#====================================================================================
+CommonKeywords.check_Lifestyle
+         Sleep    8s
+         Click Element  //div[@id="view-default-view"]
+         Wait Until Page Contains    This card shows the life stage distribution of TrueMove H customers in the selected area and time period.    timeout=20s
+         Click Element  //div[@id="view-default-view"]
+
+
+
+
+
+
+
+
+
+
+
+#=================ocean===================================================================
+set_abbreviated_page
+    Go to   @{go_ordinary}
+    Wait Until Page Contains Element   ${input_code_id}     timeout=120s
+    Input Text    ${input_code_id}    5401105:     #config
+    Wait Until Page Contains Element    //li[contains(@id,'yui_3_10_1_3_164')]    timeout=120s
+    Sleep    2s
+    Click Element    //li[contains(@id,'yui_3_10_1_3_164')]
+    Sleep    4s
+    Click Element    //button[@id="bAddNew"]
+    Click Element    //button[@id="addCus"]
+    Sleep    2s
+    Select From List By Value    //select[@name="cardCusType"]    1
+    Sleep    1s
+    Input Text    //input[@name="cardCusNumberAdd"]    1545281551730
+    Sleep    2s
+    Input Text    //input[@name="prefixCus"]    นาย
+    Sleep    5s
+    Click Element  xpath=//ul[@class="yui3-aclist-list"]/li[@data-text="นาย"]      #[data-text("นาย")]
+    Input Text    //input[@name="nameCusAdd"]    สมคิด
+    Input Text    //input[@name="surnameCusAdd"]    ออโต้
+    Input Text    //input[@name="birthDateCus"]      12012534
+    Click Element    //input[@name="genderCus"]
+    Click Element    //input[@name="confirmSelfie"]
+    Click Element    //input[@name="genderCus"]
+    Click Element  xpath=//div[@id='add-cus-content']/div[@class='yui3-widget-ft']//button[1]       #//div[@id='add-cus-content']/div[@class='yui3-widget-ft']//button[1]  แนวทาง
+    handle alert  dismiss
+    Sleep    5s
+    Wait Until Page Contains    อาชีพ    timeout=120s
+    Input Text    //input[@name="requestId"]    8930836
+    Input Text    //input[@name="expireDate"]  14012585
+    Select From List By Value    //select[@name="checkCard"]    12-0
+    Input Text    //input[@name="phoneMobile"]    0800000000
+    Click Element     id=occupationList
+
+    Input Text     id=filteredOccupationList    3200:เจ้าของธุรกิจ
+    Sleep    2s
+    Click Element  xpath=//ul[@class="yui3-aclist-list"]/li[@data-text="3200:เจ้าของธุรกิจ"]
+    Sleep    2s
+    Click Element    //button[@id="bAdditionalContract"]
+    Click Element    xpath=(//input[@name="rMotorcycle"])[2]
+    Sleep    5s
+  #Click Element    //td[@colspan="2"]
+    Click Element  xpath=//select[@name="plan"]/option[@value='']
+    Sleep    5s
+    Click Element  xpath=//select[@name="plan"]/option[@value='']
+    Sleep    5s
+    Select From List By Value    //select[@name="plan"]    5
+    Sleep    5s
+    #handle alert  dismiss
+
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    1
+    Select From List By Value    //select[@id="additionalSumAssure"]    100000
+    Click Element    ${button_contract}
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    0
+    Click Element    ${button_contract}
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    2
+    Select From List By Value    //select[@id="additionalSumAssure"]    500
+    Click Element    ${button_contract}
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    3
+    Select From List By Value    //select[@id="additionalSumAssure"]    HS1000-1000
+    Click Element    ${button_contract}
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    5
+    Select From List By Value    //select[@id="additionalSumAssure"]    OPD500-500
+    Click Element    ${button_contract}
+    Click Element    ${additional_contract}
+    Select From List By Value    //select[@id="additionalContract"]    6
+    Click Element    ${button_contract}
+    Click Element    //input[@name="benefPay"]
+    Click Element    //input[@name="i06"]
+    Click Element    //input[@name="i7"]
+    Click Element    //input[@name="i8"]
+    Click Element    //input[@name="no9"]
+    Input Text    //input[@name="height"]    160
+    Input Text    //input[@name="weight"]    50
+    Click Element    //input[@name="i10"]
+
+    Click Element    //input[@name="i1113"]
+    Click Element    //input[@name="i13"]
+
+
+
+    Click Element    //input[@name="i1416"]
+
+    Click Element    //input[@name="i17"]
+    Click Element    xpath=(//input[@name="i18"])[2]
+    Click Element    //input[@name="fatcaFlag"]
+    Click Element    xpath=(//input[@name="discloseStatus"])[2]
+
+    Input Text    //input[@name="requestDate"]    07022565
+    Input Text    //input[@name="tempRecieptDate"]    07022565
+
+
+     Sleep    1000s
+    #Click Element    //button[@id="bAdditionalContract"]
+    #Select From List By Value    //select[@id="additionalContract"]    2
+    #Select From List By Value    //select[@id="additionalSumAssure"]    500
+    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
+    #Click Element    //button[@id="bAdditionalContract"]
+    #Select From List By Value    //select[@id="additionalContract"]    3
+    #Click Element    //div[@id="yui_3_10_1_3_1644123810929_2837"]
+    #Select From List By Value    //select[@id="additionalSumAssure"]    HS1000-1000
+    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
+    #Click Element    //button[@id="bAdditionalContract"]
+    #Select From List By Value    //select[@id="additionalContract"]    5
+    ##Click Element    //div[@id="yui_3_10_1_3_1644123810929_2837"]
+    #Select From List By Value    //select[@id="additionalSumAssure"]    OPD500-500
+    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
+    #Click Element    //td[@id="yui_3_10_1_3_1644123810929_3046"]
+    #Click Element    //button[@id="bAdditionalContract"]
+    #Select From List By Value    //select[@id="additionalContract"]    6
+    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+*** Settings ***
+Resource          variables.txt
+Resource    common/CommonKeywords.txt
+*** Keywords ***
+deas
+    Open Browser    ${url}    @{gch}
+
+
+create_ordinary
+  ${Filetagcase1}=    Get File    ${Filetxts}
+  @{listcase1}=    Split to lines    ${Filetagcase1}
+
+  Internal_login
+  Log To Console    ******
+  Log To Console    case 1
+  Log To Console    @{listcase1}
+  CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
+  Wait Until Page Contains    ออกจากระบบ    timeout=120s
+  CommonKeywords.set_abbreviated_page
+
+  Sleep    20000s
+  Sleep    20s
+
+  #CommonKeywords.Home page - Select the time filter    ${timesele}[0]    ${locationint}[0]${imgs}[0]@{listcase1}2.jpg
+  #CommonKeywords.Home page - Select the feature filter    ${data usege}[0]    ${locationint}[0]${imgs}[0]@{listcase1}3.jpg
+  #Click Element  //div[@id="view-default-view"]
+  Close All Browsers
+
+
