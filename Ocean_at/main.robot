@@ -3,7 +3,7 @@ Resource          variables.txt
 Resource          Internal.txt
 Resource          External.txt
 Resource          Case__001.txt
-#Resource          Case_TC_001_int.txt
+Resource          Case_TC_001_int.txt
 #Resource          Case_TC_002_int.txt
 
 Test Teardown    Close All Browsers

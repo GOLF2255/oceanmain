@@ -33,15 +33,26 @@ forcase1
         Run Keyword If    '${result}'=='True'    Append To List    ${linelistt}    ${codes}[1]
     END
 
-Test Pointer selection on default grid int
-    @{linelist}=    Create List    ${codes}[0]
-    @{linelistt}=    Create List    ${codes}[0]
-    ${Fileuse}=    Get File    ${Filetxts}
-    @{lists_}=    Split to lines    ${Fileuse}
-    ${Filetagcase1}=    Get File    ${idcasein1}
-    @{listcase1}=    Split to lines    ${Filetagcase1}
-    ${Filetag}=    Get File    ${idTag}
-    @{listtag}=    Split to lines    ${Filetag}
+Test_Pointer
+
+    Internal_login
+    Go to   https://www.facebook.com/
+    Sleep    3s
+
+    ${response}=    Get Text   //h2[@class="_8eso"]
+    Log To Console    ${response}
+    Log To Console  "passsss"
+
+    Sleep    2000s
+
+
+
+
+
+
+
+
+
     Set Global Variable    @{list}
     Set Global Variable    @{listtag}
     Set Global Variable    @{linelistt}

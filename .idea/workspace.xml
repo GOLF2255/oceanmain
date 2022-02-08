@@ -31,12 +31,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="test">
+    <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="test33">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocean_at/Case__001.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Case__001.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/Case_TC_001_int.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Case_TC_001_int.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocean_at/config/config.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/config/config.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocean_at/variables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/variables.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/main.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/main.robot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644225740678</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="test33">
+      <created>1644293355718</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1644293355718</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,7 +384,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="edit error case login web app change name and edit case for dev mooc" />
     <MESSAGE value="Added 5 heatmap options for map B" />
     <MESSAGE value="Added 5 heatmap options for map B below:&#10;NEC Truck Roll Repeated Fault - 1 day - 30 days&#10;TOL Propensity to Buy - Average Score&#10;Network Fault All Ticket&#10;Truck Roll Repeated 5 Days Average Latest 12W&#10;Truck Roll Repeated 30 Days Average Latest 12W" />
     <MESSAGE value="Added 5 heatmap options for map B below:&#10;TOL Propensity to Buy - Average Score&#10;Network Fault All Ticket&#10;Truck Roll Repeated 5 Days Average Latest 12W&#10;Truck Roll Repeated 30 Days Average Latest 12W" />
@@ -403,6 +408,7 @@
     <MESSAGE value="01" />
     <MESSAGE value="02" />
     <MESSAGE value="04" />
-    <option name="LAST_COMMIT_MESSAGE" value="04" />
+    <MESSAGE value="test33" />
+    <option name="LAST_COMMIT_MESSAGE" value="test33" />
   </component>
 </project>
