@@ -33,9 +33,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a95f7a72-6775-4869-9169-68bde0b8307a" name="Default Changelist" comment="test33">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocean_at/Case_TC_001_int.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Case_TC_001_int.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocean_at/main.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/main.robot" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -369,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644293355718</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="test33">
+      <created>1644294504151</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1644294504151</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

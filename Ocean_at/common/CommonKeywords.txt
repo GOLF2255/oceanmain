@@ -849,18 +849,21 @@ send_requests
     Wait Until Page Contains    ออกจากระบบ    timeout=120s
     Go to   @{go_print}
     Wait Until Page Contains Element    //button[@id="oSearch"]    timeout=120s
-    Select From List By Value    //select[@name="pdGroupCode"]    1
-    Click Element    //button[@id="oSearch"]
-    Click Element  //input[@name="select"][1]
-    Click Element    //button[@id="oSendData"]
-    Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
-    Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    #Select From List By Value    //select[@name="pdGroupCode"]    1
+    #Click Element    //button[@id="oSearch"]
+    #Click Element  //input[@name="select"][1]
+    #Click Element    //button[@id="oSendData"]
+    #Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    #Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
 temporary_receipt
     Go to   @{go_temporary}
-    Sleep    10s
-     ${response}=    Get Text    //td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell yui3-datatable-highlighted"]
-     Log To Console    ${response}
-     Log To Console  "passsss"
+    Sleep    30s
+     ${response}=    Get Text   //tr[@class="yui3-datatable-even "]//td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell "]
+    Log To Console  ${response}
+    Input Text    //input[@name="agency"]    5401105:
+    Click Element   //ul[@class="yui3-aclist-list"]//li[@class="yui3-aclist-item"]
+     #Log To Console    ${response}
+     #Log To Console  "passsss"
 
 
 
