@@ -13,8 +13,8 @@ Library           OperatingSystem
 
 @{go_ordinary}  http://sitnbs.thaisamut.co.th/nbsweb/secure/combine2/newcaseshortly/ord/record/index.html?uuid=52fa53c133c53b84b587de54-f7ebf11
 ${filename}    ${CURDIR}/config/config.xlsx
-
-
+@{go_print}   http://sitnbs.thaisamut.co.th/nbsweb/secure/combine2/newcaseshortly/data/transmission/index.html?uuid=2f592b4ef45af724d5e1d1e46ddaba9e
+@{go_temporary}   http://sitnbs.thaisamut.co.th/nbsweb/secure/combine2/receipt/borrow/borrow-index3.html?uuid=7f77492c9d49a5648559adad3d6d5fb5
 
 
 
