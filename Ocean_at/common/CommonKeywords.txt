@@ -858,9 +858,9 @@ send_requests
 temporary_receipt
     Go to   @{go_temporary}
     Sleep    10s
-     ${response}    Get Text    //td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell yui3-datatable-highlighted"]
+     ${response}=    Get Text    //td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell yui3-datatable-highlighted"]
      Log To Console    ${response}
-
+     Log To Console  "passsss"
 
 
 
