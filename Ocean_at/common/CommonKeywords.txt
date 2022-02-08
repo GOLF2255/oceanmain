@@ -835,7 +835,7 @@ set_abbreviated_page
     Input Text    //input[@name="tempRecieptDate"]    07022565
     Sleep    2s
     Click Element    //div[@class="yui3-widget-ft"]//button[@class="yui3-button"][2]
-     Sleep    3s
+    Sleep    3s
     Click Element    //div[@id="summary-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
     handle alert  dismiss
     Sleep    2s
@@ -859,32 +859,19 @@ temporary_receipt
     Go to   @{go_temporary}
     Sleep    30s
      ${response}=    Get Text   //tr[@class="yui3-datatable-even "]//td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell "]
-    Log To Console  ${response}
+    #Log To Console  ${response}
     Input Text    //input[@name="agency"]    5401105:
-    Click Element   //ul[@class="yui3-aclist-list"]//li[@class="yui3-aclist-item"]
-     #Log To Console    ${response}
-     #Log To Console  "passsss"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Sleep    2s
+    Click Element   //ul[@class="yui3-aclist-list"]    #li[@data-text="5401105: นางเจ็ดแปด เอ็มเอก"]
+    Click Element    //button[@id="btAdd"]
+    handle alert  dismiss
+    Input Text    id=spInput     ${response}
+    Press Keys    id=spInput    ENTER
+    Sleep    2s
+    Click Element    //button[@id="btok"]
+    Sleep    6s
+    handle alert  action=ACCEPT    timeout=5
+    Sleep    2s
 
 
 
