@@ -738,7 +738,7 @@ CommonKeywords.check_Lifestyle
 
 
 
-
+yui_3_10_1_3_16441651561651565
 
 
 
@@ -780,7 +780,6 @@ set_abbreviated_page
     Select From List By Value    //select[@name="checkCard"]    12-0
     Input Text    //input[@name="phoneMobile"]    0800000000
     Click Element     id=occupationList
-
     Input Text     id=filteredOccupationList    3200:เจ้าของธุรกิจ
     Sleep    2s
     Click Element  xpath=//ul[@class="yui3-aclist-list"]/li[@data-text="3200:เจ้าของธุรกิจ"]
@@ -788,7 +787,6 @@ set_abbreviated_page
     Click Element    //button[@id="bAdditionalContract"]
     Click Element    xpath=(//input[@name="rMotorcycle"])[2]
     Sleep    5s
-  #Click Element    //td[@colspan="2"]
     Click Element  xpath=//select[@name="plan"]/option[@value='']
     Sleep    5s
     Click Element  xpath=//select[@name="plan"]/option[@value='']
@@ -796,7 +794,6 @@ set_abbreviated_page
     Select From List By Value    //select[@name="plan"]    5
     Sleep    5s
     #handle alert  dismiss
-
     Click Element    ${additional_contract}
     Select From List By Value    //select[@id="additionalContract"]    1
     Select From List By Value    //select[@id="additionalSumAssure"]    100000
@@ -827,68 +824,42 @@ set_abbreviated_page
     Input Text    //input[@name="height"]    160
     Input Text    //input[@name="weight"]    50
     Click Element    //input[@name="i10"]
-
     Click Element    //input[@name="i1113"]
     Click Element    //input[@name="i13"]
-
-
-
     Click Element    //input[@name="i1416"]
-
     Click Element    //input[@name="i17"]
     Click Element    xpath=(//input[@name="i18"])[2]
     Click Element    //input[@name="fatcaFlag"]
     Click Element    xpath=(//input[@name="discloseStatus"])[2]
-
     Input Text    //input[@name="requestDate"]    07022565
     Input Text    //input[@name="tempRecieptDate"]    07022565
-
-
-     Sleep    1000s
-    #Click Element    //button[@id="bAdditionalContract"]
-    #Select From List By Value    //select[@id="additionalContract"]    2
-    #Select From List By Value    //select[@id="additionalSumAssure"]    500
-    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
-    #Click Element    //button[@id="bAdditionalContract"]
-    #Select From List By Value    //select[@id="additionalContract"]    3
-    #Click Element    //div[@id="yui_3_10_1_3_1644123810929_2837"]
-    #Select From List By Value    //select[@id="additionalSumAssure"]    HS1000-1000
-    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
-    #Click Element    //button[@id="bAdditionalContract"]
-    #Select From List By Value    //select[@id="additionalContract"]    5
-    ##Click Element    //div[@id="yui_3_10_1_3_1644123810929_2837"]
-    #Select From List By Value    //select[@id="additionalSumAssure"]    OPD500-500
-    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
-    #Click Element    //td[@id="yui_3_10_1_3_1644123810929_3046"]
-    #Click Element    //button[@id="bAdditionalContract"]
-    #Select From List By Value    //select[@id="additionalContract"]    6
-    #Click Element    //button[@id="yui_3_10_1_3_1644123810929_234"]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    Sleep    2s
+    Click Element    //div[@class="yui3-widget-ft"]//button[@class="yui3-button"][2]
+     Sleep    3s
+    Click Element    //div[@id="summary-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    handle alert  dismiss
+    Sleep    2s
+    Click Element    //div[@class="yui3-widget-ft"]//button[@class="yui3-button"][3]
+    Wait Until Page Contains Element    //button[@id="bPrint"]    timeout=120s
+    Click Element     //button[@id="bPrint"]
+    handle alert  action=ACCEPT    timeout=5
+    Sleep    5s
+    Close All Browsers
+send_requests
+    Wait Until Page Contains    ออกจากระบบ    timeout=120s
+    Go to   @{go_print}
+    Wait Until Page Contains Element    //button[@id="oSearch"]    timeout=120s
+    Select From List By Value    //select[@name="pdGroupCode"]    1
+    Click Element    //button[@id="oSearch"]
+    Click Element  //input[@name="select"][1]
+    Click Element    //button[@id="oSendData"]
+    Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+temporary_receipt
+    Go to   @{go_temporary}
+    Sleep    10s
+     ${response}    Get Text    //td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell yui3-datatable-highlighted"]
+     Log To Console    ${response}
 
 
 

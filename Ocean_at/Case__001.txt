@@ -24,7 +24,11 @@ create_ordinary
   Log To Console    @{listcase1}
   CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
   Wait Until Page Contains    ออกจากระบบ    timeout=120s
-  CommonKeywords.set_abbreviated_page  ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
+  #CommonKeywords.set_abbreviated_page  ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
+  Internal_login
+  CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
+  CommonKeywords.send_requests
+  CommonKeywords.temporary_receipt
 
   Sleep    20000s
   Sleep    20s
