@@ -845,6 +845,7 @@ set_abbreviated_page
     handle alert  action=ACCEPT    timeout=5
     Sleep    5s
     Close All Browsers
+
 send_requests
     Wait Until Page Contains    ออกจากระบบ    timeout=120s
     Go to   @{go_print}
@@ -855,11 +856,11 @@ send_requests
     #Click Element    //button[@id="oSendData"]
     #Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
     #Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+
 temporary_receipt
     Go to   @{go_temporary}
     Sleep    30s
-     ${response}=    Get Text   //tr[@class="yui3-datatable-even "]//td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell "]
-    #Log To Console  ${response}
+    ${response}=    Get Text   //tr[@class="yui3-datatable-even "]//td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell "]
     Input Text    //input[@name="agency"]    5401105:
     Sleep    2s
     Click Element   //ul[@class="yui3-aclist-list"]    #li[@data-text="5401105: นางเจ็ดแปด เอ็มเอก"]
@@ -873,7 +874,12 @@ temporary_receipt
     handle alert  action=ACCEPT    timeout=5
     Sleep    2s
 
-
+case_new
+    Go to   @{go_case_new}
+    Wait Until Page Contains Element    //button[@id="bSearch"]      timeout=120s
+    Click Element    //button[@id="bSearch"]
+    Sleep    2s
+    Click Element    //td[@class="yui3-datatable-col-requestNo result-center yui3-datatable-cell "]
 
 
 

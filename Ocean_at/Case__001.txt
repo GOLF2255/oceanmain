@@ -28,7 +28,8 @@ create_ordinary
   Internal_login
   CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
   CommonKeywords.send_requests
-  CommonKeywords.temporary_receipt
+  #CommonKeywords.temporary_receipt
+  CommonKeywords.case_new
 
 
 
