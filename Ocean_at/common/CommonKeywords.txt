@@ -747,13 +747,15 @@ yui_3_10_1_3_16441651561651565
 
 #=================ocean===================================================================
 set_abbreviated_page
-    [Arguments]    ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
+    [Arguments]    ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}  ${request_number_ID_main}   ${request_number_ID_plan}   @{listcaseFiletagcaseGuarantee}
+    ${FiletagcaseGuarantee_Money}=    Get File    ${Filetxts_Money}
+    @{listcaseGuarantee_Money}=    Split to lines    ${FiletagcaseGuarantee_Money}
     Go to   @{go_ordinary}
     Wait Until Page Contains Element   ${input_code_id}     timeout=120s
-    Input Text    ${input_code_id}    5401105:     #config
-    Wait Until Page Contains Element    //li[contains(@id,'yui_3_10_1_3_164')]    timeout=120s
+    Input Text    ${input_code_id}    ${request_number_ID_main}     #config
+    Wait Until Page Contains Element    //li[@data-text="${request_number_ID_main}"]    timeout=120s
     Sleep    2s
-    Click Element    //li[contains(@id,'yui_3_10_1_3_164')]
+    Click Element    //li[@data-text="${request_number_ID_main}"]
     Sleep    4s
     Click Element    //button[@id="bAddNew"]
     Click Element    //button[@id="addCus"]
@@ -777,45 +779,82 @@ set_abbreviated_page
     Wait Until Page Contains    อาชีพ    timeout=120s
     Input Text    //input[@name="requestId"]    ${request_number}
     Input Text    //input[@name="expireDate"]  14012585
+    Sleep    1s
+    Click Element  //input[@id="btnEditSelectCus"]
+    Sleep    5s
+    Click Element  xpath=//div[@id='add-cus-content']/div[@class='yui3-widget-ft']//button[1]
+    Sleep    5s
     Select From List By Value    //select[@name="checkCard"]    12-0
     Input Text    //input[@name="phoneMobile"]    0800000000
     Click Element     id=occupationList
     Input Text     id=filteredOccupationList    3200:เจ้าของธุรกิจ
     Sleep    2s
     Click Element  xpath=//ul[@class="yui3-aclist-list"]/li[@data-text="3200:เจ้าของธุรกิจ"]
-    Sleep    2s
+    Sleep    4s
     Click Element    //button[@id="bAdditionalContract"]
     Click Element    xpath=(//input[@name="rMotorcycle"])[2]
     Sleep    5s
     Click Element  xpath=//select[@name="plan"]/option[@value='']
     Sleep    5s
     Click Element  xpath=//select[@name="plan"]/option[@value='']
+    Sleep    8s
+    Select From List By Label    xpath=//select[@name="plan"]    ${request_number_ID_plan}
+    #Select From List By Value    //select[@name="plan"]    ${request_number_ID_plan}
     Sleep    5s
-    Select From List By Value    //select[@name="plan"]    5
-    Sleep    5s
+    handle alert  dismiss
     #handle alert  dismiss
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    1
-    Select From List By Value    //select[@id="additionalSumAssure"]    100000
-    Click Element    ${button_contract}
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    0
-    Click Element    ${button_contract}
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    2
-    Select From List By Value    //select[@id="additionalSumAssure"]    500
-    Click Element    ${button_contract}
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    3
-    Select From List By Value    //select[@id="additionalSumAssure"]    HS1000-1000
-    Click Element    ${button_contract}
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    5
-    Select From List By Value    //select[@id="additionalSumAssure"]    OPD500-500
-    Click Element    ${button_contract}
-    Click Element    ${additional_contract}
-    Select From List By Value    //select[@id="additionalContract"]    6
-    Click Element    ${button_contract}
+
+
+   #####@{listcaseFiletagcaseGuarantee}
+
+   FOR  ${INDEXcaseGuarantee}   ${INDEXcaseGuarantee_Money}  IN     @{listcaseFiletagcaseGuarantee}  @{listcaseGuarantee_Money}
+        Sleep    1s
+        Click Element    ${additional_contract}
+        Select From List By Label    //select[@id="additionalContract"]  ${INDEXcaseGuarantee}
+        Sleep    1s
+        Select From List By Label    //select[@id="additionalSumAssure"]    ${INDEXcaseGuarantee_Money}
+        Sleep    1s
+        Click Element    ${button_contract}
+        Sleep    1s
+
+    END
+    #######
+
+
+    #Select From List By Value    //select[@id="additionalContract"]    1
+    #Sleep    1s
+    #Select From List By Value    //select[@id="additionalSumAssure"]    100000
+    #Sleep    1s
+    #Click Element    ${button_contract}
+    #Click Element    ${additional_contract}
+    #Sleep    1s
+    #Select From List By Value    //select[@id="additionalContract"]    0
+    #Sleep    5s
+    #Select From List By Value    //select[@id="additionalSumAssure"]    100000
+    #Click Element    ${button_contract}
+    #Click Element    ${additional_contract}
+    #Select From List By Value    //select[@id="additionalContract"]    2
+    #Sleep    1s
+    #Select From List By Value    //select[@id="additionalSumAssure"]    100000
+    #Sleep    1s
+    #Click Element    ${button_contract}
+    #Click Element    ${additional_contract}
+    #Sleep    1s
+    #Select From List By Value    //select[@id="additionalContract"]    9
+    #Sleep    1s
+    #Select From List By Value    //select[@id="additionalSumAssure"]    HSS6K-5000000
+    #Sleep    1s
+    #Click Element    ${button_contract}
+    #Click Element    ${additional_contract}
+    #Select From List By Value    //select[@id="additionalContract"]    10
+    #Sleep    10s
+    #Select From List By Value    //select[@id="additionalSumAssure"]    OPD500-500
+
+    #Click Element    ${button_contract}
+    #Click Element    ${additional_contract}
+    #Select From List By Value    //select[@id="additionalContract"]    6
+    #Select From List By Value    //select[@id="additionalSumAssure"]    HP2000-2000
+    #Click Element    ${button_contract}
     Click Element    //input[@name="benefPay"]
     Click Element    //input[@name="i06"]
     Click Element    //input[@name="i7"]
@@ -831,14 +870,14 @@ set_abbreviated_page
     Click Element    xpath=(//input[@name="i18"])[2]
     Click Element    //input[@name="fatcaFlag"]
     Click Element    xpath=(//input[@name="discloseStatus"])[2]
-    Input Text    //input[@name="requestDate"]    07022565
-    Input Text    //input[@name="tempRecieptDate"]    07022565
+    Input Text    //input[@name="requestDate"]    25032565
+    Input Text    //input[@name="tempRecieptDate"]    25032565
     Sleep    2s
     Click Element    //div[@class="yui3-widget-ft"]//button[@class="yui3-button"][2]
-    Sleep    3s
+    Sleep    6s
     Click Element    //div[@id="summary-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
     handle alert  dismiss
-    Sleep    2s
+    Sleep    5s
     Click Element    //div[@class="yui3-widget-ft"]//button[@class="yui3-button"][3]
     Wait Until Page Contains Element    //button[@id="bPrint"]    timeout=120s
     Click Element     //button[@id="bPrint"]
@@ -850,56 +889,175 @@ send_requests
     Wait Until Page Contains    ออกจากระบบ    timeout=120s
     Go to   @{go_print}
     Wait Until Page Contains Element    //button[@id="oSearch"]    timeout=120s
-    #Select From List By Value    //select[@name="pdGroupCode"]    1
-    #Click Element    //button[@id="oSearch"]
-    #Click Element  //input[@name="select"][1]
-    #Click Element    //button[@id="oSendData"]
-    #Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
-    #Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    Sleep    5s
+    Select From List By Value    //select[@name="pdGroupCode"]    1
+    Sleep    5s
+    Click Element    //button[@id="oSearch"]
+    Sleep    6s
+    Click Element    //input[@name="select"][1]
+    Sleep    5s
+    Click Element    //button[@id="oSendData"]
+    Click Element     //div[@id="datatransmission-before-panel"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
+    Sleep    8s
+    Click Element     //div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"][1]
 
-temporary_receipt
+
+#temporary_receipt
+
+case_new
+#/////////////////////////////////////
+    [Arguments]    ${request_number_ID_main}
     Go to   @{go_temporary}
     Sleep    30s
     ${response}=    Get Text   //tr[@class="yui3-datatable-even "]//td[@class="yui3-datatable-col-receiptNo cellAlignCenter yui3-datatable-cell "]
-    Input Text    //input[@name="agency"]    5401105:
+    Input Text    //input[@name="agency"]    ${request_number_ID_main}[0:8]
+    Log To Console   ${response}
     Sleep    2s
     Click Element   //ul[@class="yui3-aclist-list"]    #li[@data-text="5401105: นางเจ็ดแปด เอ็มเอก"]
+    Sleep    5s
     Click Element    //button[@id="btAdd"]
     handle alert  dismiss
+    Sleep    5s
     Input Text    id=spInput     ${response}
     Press Keys    id=spInput    ENTER
-    Sleep    2s
+    Sleep    8s
+    Wait Until Page Contains Element    //button[@id="btok"]    timeout=120s
     Click Element    //button[@id="btok"]
-    Sleep    6s
+    Sleep    7s
     handle alert  action=ACCEPT    timeout=5
-    Sleep    2s
-
-case_new
+    Sleep    3s
+#////////////////////////////////////
+    Sleep    5s
     Go to   @{go_case_new}
+    Sleep    10s
     Wait Until Page Contains Element    //button[@id="bSearch"]      timeout=120s
     Click Element    //button[@id="bSearch"]
-    Sleep    2s
+    Sleep    15s
     Click Element    //td[@class="yui3-datatable-col-requestNo result-center yui3-datatable-cell "]
+    Sleep    35s
+    Wait Until Page Contains Element    //select[@name="marryStatus"]   timeout=120s
+    Select From List By Value    //select[@name="marryStatus"]    1
+    Input Text    //input[@name="homeNo"]    55
+    Select From List By Value    //select[@name="province"]    กรุงเทพมหานคร
+    Select From List By Value    //select[@name="district"]    คลองสาน
+    Select From List By Value    //select[@name="subdistrict"]    คลองสาน
+    Sleep    5s
+    Select From List By Value    //select[@id="listCusCurrentAddress"]    1
+    Input Text    //input[@name="salaryPerYear"]    111111111
+    Click Element    xpath=(//input[@name="rAddress"])[2]
+#tab
+    Click Link       xpath=//a[@href="#tab-2"]
+    Click Element    xpath=(//input[@name="payType"])[2]
+    Input Text    //input[@name="payChequeNo"]    1111111111
+    ${response2}=    Get Text   //td[@id="totalPremium"]
+
+    Click Element    //input[@value="99"]
+    Select From List By Value    //select[@style="margin-right: 4px; width: 120px;"]    6
+    Click Element    xpath=(//input[@name="rReturnPayment"])[3]
 
 
 
+    Select From List By Value    //select[@name="receivePolicyCode"]    2
+#tab
+    Click Link       xpath=//a[@href="#tab-3"]
+    Select From List By Value    //select[@name="titleBeneficiary"]    1-M
+    Input Text    //input[@name="nameBeneficiary"]    ออโต้
+    Click Element    //button[@id="copyInsureSurname"]
+    Select From List By Value    //select[@name="relationBeneficiary"]    1-1
+    Input Text    //input[@name="ageBeneficiary"]    80
+    Input Text    //input[@name="perBeneficiary"]    100
+    Select From List By Value    //select[@id="listBenefAddress"]    1
+    Click Element  //input[@id="bAddBenef"]
+
+  #
+#tab
+    Click Link       xpath=//a[@href="#tab-5"]
+    Click Element    //input[@name="cc1"]
+    Click Element    //input[@name="cc16"]
+    Click Element    //input[@name="dCheck1Checkbox"]
+    Click Element    //input[@name="dCheck4Checkbox"]
+    Click Element    //input[@name="dCheck5Checkbox"]
+#tab
+    Click Link       xpath=//a[@href="#tab-7"]
+    Click Element     //td[@colspan="2"]/input[@value="03"]
 
 
+    #Select From List By Value    //select[@style="width: 300px;"]    005
+    #Input Text     //td[@style="result-nowrap"]/input[@maxlength="100"]  ไทย
+    #Input Text     //td[@style="result-nowrap"]/input[@style="width: 80px;"]  17022565
+    #Input Text     //input[@type="text"][3][@class="validateDecimal"]    ${response2}
+    Input Text     //td[@style="result-nowrap"]/input[@type="text"]   ${response}
+    Sleep    4s
+    Click Button   //span[@class="yui3-widget-buttons"]/button[@class="yui3-button"]
+    Sleep    4s
+    Click Button   //span[@class="yui3-widget-buttons"]/button[@class="yui3-button"]
+    Click Button   //div[@id="summary-panel"]/div[@class="yui3-widget-ft"]/span[@class="yui3-widget-buttons"]/button[@class="yui3-button"]
+    Sleep    4s
+    handle alert  action=ACCEPT    timeout=5
+    Sleep    4s
 
+temporary_receipt
+    Sleep    10s
+    Go to   @{go_case_new}
+    Sleep    5s
+    Click Element    //button[@id="bSearch"]
+    Sleep    5s
 
+    Select From List By Value     //select[@class="yui3-pagview-select-rowsperpage"]  All
+    Sleep    5s
+    Click Element       //td[@class="yui3-datatable-col-requestStatus result-center result-nowrap yui3-datatable-cell "]//a[@href="javascript:void(0);"]
+    Sleep    20s
+    Close Browser
 
+temporary_receipt2
+    Sleep    10s
+    Go to   @{go_case_new}
+    Sleep    5s
+    Click Element    //button[@id="bSearch"]
+    Sleep    5s
+    Select From List By Value     //select[@class="yui3-pagview-select-rowsperpage"]  All
+    Sleep    4s
+    Click Element     //td[@class="yui3-datatable-col-requestStatus1 result-center yui3-datatable-cell "]//a[@href="javascript:void(0);"]
 
+    Sleep    20s
 
+    Click Element      //div[@id="summary-panel-approve"]//div[@class="yui3-widget-ft"]//span[@class="yui3-widget-buttons"]//button[@class="yui3-button"]
+    Sleep    2s
+    ${response3}=    Get Text   //input[@id="netSummaryApprovePolicy"]
+    Log To Console    ${response3}
 
+Policy_details
+    Sleep    10s
+    Go to   @{go_case_new_details}
+    Sleep    5s
+    Click Element    //button[@id="bSearchPrintPolicy"]
+    Sleep    6s
+    Wait Until Page Contains Element    xpath=//a[@href="javascript:void(0);"]    timeout=120s
+    Click Link       xpath=//a[@href="javascript:void(0);"]
+    Click Element    //div[@id="print-datatable"]//button[@class="yui3-button"]
+    Click Element    //div[@id="newcaseord-preview-panel"]//button[@class="yui3-button"]
+    ${response4}=    Get Text   //td[@id="checkPolicyNo"]
+    Log To Console    ${response4}
+    Log   ${response4}
+    Select From List By Value    //select[@name="approveBySel"]    0001
+    Select From List By Value    //select[@name="approveBySameRemarkValue"]    1
+    Click Element      //button[@class="yui3-button print-approve-confirm"]
+    Sleep    5s
+    Click Button       //div[@id="stockSlipNoPanel"]//button[@class="yui3-button"]
 
-
-
-
-
-
-
-
-
+Print_premium_remittance_slip
+    [Arguments]    ${request_number_ID_main}
+    Go to   @{go_case_new_Print_premium}
+    Sleep    5s
+    Select From List By Value    //select[@name="branchList"]    0001
+    Input Text    //input[@id="agentOwnerCase"]    ${request_number_ID_main}
+    Sleep    5s
+    Click Element       //li[@data-text="${request_number_ID_main}"]
+    Sleep    7s
+    Click Element       //input[@id="btShowPanelSummary"]
+    Sleep    5s
+    Click Element       //div[@class="yui3-widget-ft"]//button[@class="yui3-button"]
+    Wait Until Page Contains    รายการไม่สำเร็จ จำนวน 0 รายการ    timeout=120s
 
 
 
