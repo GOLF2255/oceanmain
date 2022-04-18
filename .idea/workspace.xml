@@ -35,6 +35,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/Case__001.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/Case__001.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/common/CommonKeywords.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/config/config.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/config/config.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocean_at/main.robot" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/main.robot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Ocean_at/variables.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Ocean_at/variables.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -403,6 +405,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added 5 heatmap options for map B below:&#10;TOL Propensity to Buy - Average Score&#10;Network Fault All Ticket&#10;Truck Roll Repeated 5 Days Average Latest 12W&#10;Truck Roll Repeated 30 Days Average Latest 12W" />

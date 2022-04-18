@@ -10,36 +10,55 @@ deas
 create_ordinary
   ${Filetagcase1}=    Get File    ${Filetxts}
   @{listcase1}=    Split to lines    ${Filetagcase1}
+  ${FiletagcaseGuarantee}=    Get File    ${Filetxts_Name}
+  @{listcaseFiletagcaseGuarantee}=    Split to lines    ${FiletagcaseGuarantee}
+  ${FiletagcaseGuarantee_Money}=    Get File    ${Filetxts_Money}
+  @{listcaseGuarantee_Money}=    Split to lines    ${FiletagcaseGuarantee_Money}
 
-  Open Excel Document   D://Git//Ocean_at//config//config.xlsx   doc_id=doc1
+
+
+
+  Open Excel Document   ${CURDIR}//config//config.xlsx   doc_id=doc1  #D://oceanmain//Ocean_at//config//config.xlsx   doc_id=doc1
   Log To Console    ${filename}
   ${prefix}=	Read Excel Cell	row_num=2	col_num=1
   ${name}=	Read Excel Cell	row_num=2	col_num=2
   ${Surname}=	Read Excel Cell	row_num=2	col_num=3
   ${id_thai}=	Read Excel Cell	row_num=2	col_num=4
   ${request_number}=	Read Excel Cell	row_num=2	col_num=5
+  ${request_number_ID}=	Read Excel Cell	row_num=2	col_num=6
+  ${request_number_ID_main}=	Read Excel Cell	row_num=2	col_num=7
+  ${request_number_ID_plan}=	Read Excel Cell	row_num=2	col_num=8
   Internal_login
   Log To Console    ******
   Log To Console    case 1
   Log To Console    @{listcase1}
-  CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
+  CommonKeywords.Login with Username and Password    ${request_number_ID}    ${PASSWORD_TRUESSO}
+
+
+
+
   Wait Until Page Contains    ออกจากระบบ    timeout=120s
-  #CommonKeywords.set_abbreviated_page  ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}
+  Log To Console    ${request_number_ID_main}
+  CommonKeywords.set_abbreviated_page  ${prefix}  ${name}  ${Surname}  ${id_thai}  ${request_number}   ${request_number_ID_main}  ${request_number_ID_plan}  @{listcaseFiletagcaseGuarantee}
   Internal_login
-  CommonKeywords.Login with Username and Password    @{listcase1}    ${PASSWORD_TRUESSO}
+  CommonKeywords.Login with Username and Password    ${request_number_ID}    ${PASSWORD_TRUESSO}
   CommonKeywords.send_requests
-  #CommonKeywords.temporary_receipt
-  CommonKeywords.case_new
+  CommonKeywords.case_new      ${request_number_ID_main}
+
+  CommonKeywords.temporary_receipt
+  Internal_login
+  CommonKeywords.Login with Username and Password    ${request_number_ID}    ${PASSWORD_TRUESSO}
+  CommonKeywords.temporary_receipt2
+  #///
+  CommonKeywords.Policy_details
+  #///
+  CommonKeywords.Print_premium_remittance_slip   ${request_number_ID_main}
 
 
 
 
 
-
-
-
-  Sleep    20000s
-  Sleep    20s
+  Sleep    120s
 
   #CommonKeywords.Home page - Select the time filter    ${timesele}[0]    ${locationint}[0]${imgs}[0]@{listcase1}2.jpg
   #CommonKeywords.Home page - Select the feature filter    ${data usege}[0]    ${locationint}[0]${imgs}[0]@{listcase1}3.jpg

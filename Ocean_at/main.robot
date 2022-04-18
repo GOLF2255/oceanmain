@@ -13,6 +13,8 @@ create_ordinary case01
     [Tags]    regression   TESTRC    TESTPROD  TESTDbug
     create_ordinary
 
+
+
 #Pointer selection on default grid int case1    #https://docs.google.com/spreadsheets/d/1CQ17SUQZTiJ8pwPqBlufNITFd5FnvB0iMeJpudWZVjY/edit#gid=0
 #    [Tags]    regression    TESTRC     TESTPROD  TESTDbug
 #    Test Pointer selection on default grid int
